@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蝦皮電商戰績</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+  --bg: #f5f5f2;
+  --surface: #ffffff;
+  --shopee: #ff5722;
+  --shopee-light: #ff8a65;
+  --gold: #ffbe0b;
+  --c3: #06d6a0;
+  --c4: #4895ef;
+  --text: #f0eeff;
+  --muted: #7a7a9a;
+  --border: rgba(0,0,0,0.04);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #f5f5f2;
+  color: #1a1a18;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.shopee-hero {
+  position: relative;
+  padding: 80px 48px 60px;
+  overflow: hidden;
+}
+
+.hero-bg-blobs {
+  position: absolute; inset: 0; z-index: 0;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.06;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+.blob-o { width: 500px; height: 500px; background: var(--shopee); top: -150px; right: -80px; }
+.blob-g { width: 300px; height: 300px; background: var(--gold); bottom: -80px; left: 5%; animation-delay: -5s; }
+
+@keyframes drift {
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(30px, 20px) scale(1.08); }
+}
+
+.grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255,87,34,0.4);
+  border-radius: 100px;
+  margin-bottom: 28px;
+  background: rgba(255,87,34,0.08);
+  animation: fadeUp 0.6s ease both;
+}
+.platform-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--shopee); }
+.platform-badge span { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--shopee-light); }
+
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero-title .outline {
+  -webkit-text-stroke: 1.5px rgba(255,87,34,0.4);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: #888884;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 48px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+.hero-sub strong { color: var(--shopee-light); font-weight: 500; }
+
+/* ── MEGA STATS ── */
+.mega-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto 0;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.mega-stat {
+  padding: 36px 28px;
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+  cursor: default;
+}
+.mega-stat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--shopee), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+.mega-stat:hover { transform: translateY(-4px); border-color: rgba(255,87,34,0.25); }
+.mega-stat:hover::before { transform: scaleX(1); }
+
+.mega-stat-icon { font-size: 28px; margin-bottom: 12px; }
+.mega-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--shopee-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+.mega-stat-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #888884;
+  text-transform: uppercase;
+}
+
+/* ── CHART SECTION ── */
+.chart-section {
+  padding: 72px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-hd {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.section-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--shopee);
+  letter-spacing: 0.15em;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.section-line { flex: 1; height: 1px; background: var(--border); }
+
+/* Bar chart */
+.bar-chart-wrap {
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 36px 36px 24px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888884;
+  letter-spacing: 0.05em;
+}
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+.bars-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 200px;
+  padding-bottom: 0;
+}
+
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar-fill {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(to top, var(--shopee), var(--shopee-light));
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  min-height: 4px;
+  cursor: default;
+}
+.bar-fill.peak {
+  background: linear-gradient(to top, var(--gold), #ffe566);
+}
+.bar-fill:hover::after {
+  content: attr(data-val);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #1a1a18;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  pointer-events: none;
+}
+
+.bar-month {
+  font-size: 9px;
+  color: #888884;
+  letter-spacing: 0.04em;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(-40deg);
+  transform-origin: center;
+  margin-top: 6px;
+}
+
+.y-axis-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  margin-right: 12px;
+  text-align: right;
+}
+.y-label { font-size: 10px; color: #888884; letter-spacing: 0.05em; }
+
+.chart-grid-wrap {
+  display: flex;
+  gap: 0;
+}
+.chart-main { flex: 1; }
+
+/* ── HIGHLIGHTS ── */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.hl-card {
+  padding: 24px;
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  transition: all 0.4s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.hl-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--shopee), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.hl-card:hover { transform: translateY(-4px); }
+.hl-card:hover::after { transform: scaleX(1); }
+
+.hl-icon { font-size: 24px; margin-bottom: 12px; }
+.hl-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hl-label { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.hl-desc { font-size: 12px; color: #888884; line-height: 1.5; }
+
+/* ── YEAR BANDS ── */
+.year-bands {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.year-band {
+  padding: 28px;
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.4s;
+  cursor: default;
+}
+.year-band:hover { transform: translateY(-4px); border-color: rgba(255,87,34,0.3); }
+.year-band-yr {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--shopee);
+  margin-bottom: 12px;
+}
+.year-band-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--shopee-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+.year-band-orders { font-size: 12px; color: #888884; letter-spacing: 0.05em; }
+
+/* ── PRODUCT TAGS ── */
+.product-section {
+  margin-top: 24px;
+  padding: 28px 32px;
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+.product-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888884;
+  margin-bottom: 16px;
+}
+.product-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.ptag {
+  padding: 8px 18px;
+  background: rgba(255,87,34,0.08);
+  border: 1px solid rgba(255,87,34,0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--shopee-light);
+  transition: all 0.3s;
+  cursor: default;
+}
+.ptag:hover {
+  background: rgba(255,87,34,0.15);
+  border-color: var(--shopee);
+  transform: translateY(-2px);
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .shopee-hero, .chart-section { padding: 48px 24px; }
+  .mega-stats { grid-template-columns: repeat(2, 1fr); }
+  .highlights, .year-bands { grid-template-columns: 1fr; }
+  .bar-month { font-size: 7px; }
+}
+
+@media print {
+  body { background: white; color: black; }
+  .blob, .grid-lines { display: none; }
+  * { animation: none !important; }
+  .bar-fill { transform: scaleY(1) !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-back"><span class="arrow">←</span> 回到故事</a>
+  <span class="site-nav-title">我的故事</span>
+  <span class="site-nav-year" style="color:var(--shopee);border-color:rgba(255,87,34,0.4);background:rgba(255,87,34,0.08)">2021 — 2023</span>
+</nav>
+
+<!-- HERO -->
+<div class="shopee-hero">
+  <div class="hero-bg-blobs">
+    <div class="blob blob-o"></div>
+    <div class="blob blob-g"></div>
+    <div class="grid-lines"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="platform-badge">
+      <span class="dot"></span>
+      <span>Shopee Taiwan · 電商實績</span>
+    </div>
+    <h1 class="hero-title">
+      蝦皮<br>
+      <span class="outline">戰績</span>
+    </h1>
+    <p class="hero-sub">
+      自 2021 年 9 月起在蝦皮平台經營<strong>汽車精品配件</strong>，<br>
+      獨立操盤選品、定價、行銷與客服，累積 25 個月完整電商經驗。
+    </p>
+  </div>
+</div>
+
+<!-- MEGA STATS -->
+<div style="padding: 0 48px; max-width: 1148px; margin: 0 auto;">
+  <div class="mega-stats reveal">
+    <div class="mega-stat">
+      <div class="mega-stat-icon">💰</div>
+      <div class="mega-stat-num">780萬</div>
+      <div class="mega-stat-label">25 個月總營業額</div>
+    </div>
+    <div class="mega-stat">
+      <div class="mega-stat-icon">📦</div>
+      <div class="mega-stat-num">4,740</div>
+      <div class="mega-stat-label">累計成交筆數</div>
+    </div>
+    <div class="mega-stat">
+      <div class="mega-stat-icon">📈</div>
+      <div class="mega-stat-num">54.9萬</div>
+      <div class="mega-stat-label">單月最高營業額</div>
+    </div>
+    <div class="mega-stat">
+      <div class="mega-stat-icon">🏆</div>
+      <div class="mega-stat-num">31.2萬</div>
+      <div class="mega-stat-label">25 個月月均營業額</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHART + DETAILS -->
+<div class="chart-section">
+
+  <div class="section-hd reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">月營業額趨勢</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="bar-chart-wrap reveal">
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--shopee)"></div>月營業額（商品總價）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>歷史高峰</div>
+    </div>
+    <div class="chart-grid-wrap">
+      <div class="y-axis-labels">
+        <span class="y-label">55萬</span>
+        <span class="y-label">40萬</span>
+        <span class="y-label">25萬</span>
+        <span class="y-label">10萬</span>
+        <span class="y-label">0</span>
+      </div>
+      <div class="chart-main">
+        <div class="bars-area" id="barsArea"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year bands -->
+  <div class="section-hd reveal" style="margin-top: 56px;">
+    <span class="section-num">02</span>
+    <h2 class="section-title">年度總覽</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="year-bands reveal">
+    <div class="year-band">
+      <div class="year-band-yr">2021 Q4（4個月）</div>
+      <div class="year-band-val">86.7萬</div>
+      <div class="year-band-orders">起步期</div>
+    </div>
+    <div class="year-band">
+      <div class="year-band-yr">2022 全年（12個月）</div>
+      <div class="year-band-val">445萬</div>
+      <div class="year-band-orders">高速成長期</div>
+    </div>
+    <div class="year-band">
+      <div class="year-band-yr">2023 Jan–Sep（9個月）</div>
+      <div class="year-band-val">249萬</div>
+      <div class="year-band-orders">穩定經營期</div>
+    </div>
+  </div>
+
+  <!-- Highlights -->
+  <div class="section-hd reveal" style="margin-top: 56px;">
+    <span class="section-num">03</span>
+    <h2 class="section-title">關鍵成就</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="highlights reveal">
+    <div class="hl-card">
+      <div class="hl-icon">🚀</div>
+      <div class="hl-val">+267%</div>
+      <div class="hl-label">營業額成長</div>
+      <div class="hl-desc">從 2021/09 的 NT$15萬，成長至高峰 NT$54.9萬（2022/12）</div>
+    </div>
+    <div class="hl-card">
+      <div class="hl-icon">🎯</div>
+      <div class="hl-val">31.2萬</div>
+      <div class="hl-label">月均營業額</div>
+      <div class="hl-desc">25 個月平均月均 NT$31.2 萬</div>
+    </div>
+    <div class="hl-card">
+      <div class="hl-icon">📅</div>
+      <div class="hl-val">2個月</div>
+      <div class="hl-label">突破百萬月份</div>
+      <div class="hl-desc">2022/11、2022/12 連續兩個月為最高峰</div>
+    </div>
+  </div>
+
+  <!-- Product tags -->
+  <div class="product-section reveal" style="margin-top: 24px;">
+    <div class="product-label">主要商品類目</div>
+    <div class="product-tags">
+      <span class="ptag">後照鏡蓋 / 方向燈</span>
+      <span class="ptag">車身改裝配件</span>
+      <span class="ptag">碳纖維系列</span>
+      <span class="ptag">BMW 專用</span>
+      <span class="ptag">Honda Civic</span>
+      <span class="ptag">Toyota 系列</span>
+      <span class="ptag">車燈改裝</span>
+      <span class="ptag">精品配件</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Bar chart data
+const data = [
+  { month: '21/09', val: 149658 },
+  { month: '21/10', val: 144884 },
+  { month: '21/11', val: 206046 },
+  { month: '21/12', val: 366127 },
+  { month: '22/01', val: 381856 },
+  { month: '22/02', val: 246763 },
+  { month: '22/03', val: 439341 },
+  { month: '22/04', val: 369514 },
+  { month: '22/05', val: 320050 },
+  { month: '22/06', val: 309096 },
+  { month: '22/07', val: 414556 },
+  { month: '22/08', val: 276131 },
+  { month: '22/09', val: 258649 },
+  { month: '22/10', val: 379027 },
+  { month: '22/11', val: 509736 },
+  { month: '22/12', val: 549461 },
+  { month: '23/01', val: 268450 },
+  { month: '23/02', val: 334846 },
+  { month: '23/03', val: 375061 },
+  { month: '23/04', val: 316650 },
+  { month: '23/05', val: 288418 },
+  { month: '23/06', val: 164094 },
+  { month: '23/07', val: 325817 },
+  { month: '23/08', val: 241468 },
+  { month: '23/09', val: 173684 },
+];
+
+const maxVal = Math.max(...data.map(d => d.val));
+const barsArea = document.getElementById('barsArea');
+
+data.forEach(d => {
+  const pct = (d.val / maxVal) * 100;
+  const isPeak = d.val === maxVal;
+  const col = document.createElement('div');
+  col.className = 'bar-col';
+  const formatted = d.val >= 10000
+    ? (d.val / 10000).toFixed(1) + '萬'
+    : d.val.toLocaleString();
+  col.innerHTML = `
+    <div class="bar-fill${isPeak ? ' peak' : ''}"
+         style="height:${pct}%"
+         data-val="NT$${formatted}">
+    </div>
+    <div class="bar-month">${d.month}</div>
+  `;
+  barsArea.appendChild(col);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// Bars animate when chart enters view
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach((b, i) => {
+        setTimeout(() => { b.style.transform = 'scaleY(1)'; }, i * 35);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+barObs.observe(document.querySelector('.bar-chart-wrap'));
+</script>
+
+<div class="page-nav" style="max-width:100%;padding:32px 48px;border-top:1px solid rgba(0,0,0,0.07);display:flex;justify-content:space-between;align-items:center;">
+  <a href="2020.html" class="page-nav-btn" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#6b6888;text-decoration:none;">
+    ← <span>2020 · Twitch 五國站點</span>
+  </a>
+  <a href="us-client.html" class="page-nav-btn" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#6b6888;text-decoration:none;">
+    <span>2022–2023 · 美國投影幕客戶</span> →
+  </a>
+</div>
+</body>
+</html>

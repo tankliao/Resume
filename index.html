@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的故事 — 電商創業者</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── INDEX-ONLY STYLES ── */
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.intro-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(124,58,237,0.07), transparent 70%);
+}
+.grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.intro-content { position: relative; z-index: 1; max-width: 680px; }
+
+.intro-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #888884;
+  margin-bottom: 28px;
+  animation: fadeUp 0.7s ease both;
+}
+.intro-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.intro-name .ghost {
+  -webkit-text-stroke: 1.5px rgba(124,58,237,0.3);
+  color: transparent;
+  display: block;
+}
+.intro-sub {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #888884;
+  margin-bottom: 48px;
+  animation: fadeUp 0.7s 0.25s ease both;
+}
+.intro-sub strong { color: #1a1a18; font-weight: 500; }
+
+.scroll-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #888884;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.scroll-arrow {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: arrowBob 2s ease-in-out infinite;
+}
+@keyframes arrowBob {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* ── TIMELINE ── */
+.timeline-section {
+  padding: 40px 24px 120px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.tl-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.tl-header h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.tl-header p { font-size: 14px; color: #888884; margin-top: 10px; }
+
+.chapters { display: flex; flex-direction: column; gap: 0; }
+
+.chapter {
+  position: relative;
+  border-left: 1px solid rgba(0,0,0,0.08);
+  margin-left: 28px;
+  padding-left: 36px;
+  padding-bottom: 4px;
+}
+.chapter:last-child { border-left-color: transparent; }
+
+/* Timeline dot */
+.chapter::before {
+  content: '';
+  position: absolute;
+  left: -6px; top: 30px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--dot-color);
+  box-shadow: 0 0 0 3px #f5f5f2, 0 0 0 5px var(--dot-color);
+  transition: box-shadow 0.3s;
+  z-index: 1;
+}
+.chapter.open::before {
+  box-shadow: 0 0 0 3px #f5f5f2, 0 0 16px var(--dot-color), 0 0 0 5px var(--dot-color);
+}
+
+/* ── CARD ── */
+.chapter-card {
+  background: #ffffff;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.chapter-card:hover {
+  border-color: var(--dot-color);
+  box-shadow: 0 0 24px -8px var(--dot-color);
+}
+.chapter.open .chapter-card {
+  border-color: var(--dot-color);
+  box-shadow: 0 0 32px -8px var(--dot-color);
+}
+
+.card-top {
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.card-year {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--dot-color);
+  background: color-mix(in srgb, var(--dot-color) 12%, transparent);
+  padding: 5px 13px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.card-punchline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(15px, 2.2vw, 19px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.card-toggle {
+  font-size: 20px;
+  color: var(--dot-color);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.chapter.open .card-toggle { transform: rotate(45deg); }
+
+/* ── EXPAND PANEL (summary + link) ── */
+.expand-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.chapter.open .expand-panel { max-height: 400px; }
+
+.expand-inner {
+  padding: 20px 28px 28px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+}
+
+.expand-summary {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #555555;
+}
+.expand-summary strong { color: #1a1a18; font-weight: 500; }
+
+.expand-kpis {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.expand-kpi {
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--dot-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--dot-color) 25%, transparent);
+  color: var(--dot-color);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--dot-color);
+  color: #f5f5f2;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.detail-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px var(--dot-color);
+}
+.detail-link .arrow { transition: transform 0.2s; }
+.detail-link:hover .arrow { transform: translateX(3px); }
+
+/* ── PRESENT BADGE ── */
+.present-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--y2024);
+  letter-spacing: 0.1em;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.present-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--y2024);
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--y2018), var(--y2019), var(--y2020), var(--y2021), var(--y2022), var(--y2023), var(--y2024));
+  z-index: 999;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+@media (max-width: 640px) {
+  .chapter { margin-left: 14px; padding-left: 22px; }
+  .card-top { grid-template-columns: 1fr auto; }
+  .card-year { display: none; }
+  .expand-inner { grid-template-columns: 1fr; }
+  .detail-link { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="intro-content">
+    <div class="intro-label">電商創業者 · COO · 2018 — 現在</div>
+    <h1 class="intro-name">
+      廖哲志
+      <span class="ghost">的故事</span>
+    </h1>
+    <p class="intro-sub">
+      從一個人在家摸索 Amazon 賣家後台，<br>
+      到協助<strong>美國上市公司</strong>建置五國站點，<br>
+      再到獨立操盤<strong>破百萬美元</strong>的產品線。<br>
+      每一年，都是一個新的賭注。
+    </p>
+    <div class="scroll-cta">
+      <span>展開我的每一年</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="tl-header reveal">
+    <h2>章節目錄</h2>
+    <p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p>
+  </div>
+
+  <div class="chapters">
+
+    <!-- 2018 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2018)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2018</div>
+          <div class="card-punchline">沒人教、沒資源，我就自己學、自己做——這是我業務生涯最強的一課。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                成為 <strong>Amazon + eBay 個人賣家</strong>，從零自學跨境電商。研究選品邏輯、競品分析、Listing 優化，靠自己摸索出挖掘爆品的方法。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">Amazon 賣家</span>
+                <span class="expand-kpi">eBay 賣家</span>
+                <span class="expand-kpi">跨境物流</span>
+                <span class="expand-kpi">選品研究</span>
+              </div>
+            </div>
+            <a href="2018.html" class="detail-link">查看完整故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2019 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2019)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2019</div>
+          <div class="card-punchline">4個月，eBay + Amazon 合計 USD $65,911，利潤率 50%。自學的成果，數字會說話。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                找到可複製的爆品邏輯，5月至8月單月營業額穩定在 <strong>USD $14,000–$18,000</strong>，平均利潤率維持 50%，所有數據截圖均有留存。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">$65,911 USD / 4個月</span>
+                <span class="expand-kpi">利潤率 50%</span>
+                <span class="expand-kpi">截圖存證</span>
+              </div>
+            </div>
+            <a href="2019.html" class="detail-link">查看完整故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2020)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2020</div>
+          <div class="card-punchline">Twitch 供應商找上我——他們需要有人把貨賣好，讓出貨量繼續成長。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                協助 <strong>Twitch（Amazon 旗下上市公司）</strong> 建置美國、英國、德國、澳洲、日本五個 Amazon 站點。TwitchCon 活動當天 24hr On-Call，12月創下破千萬（NTD）單月營業額。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">5國站點建置</span>
+                <span class="expand-kpi">24hr On-Call</span>
+                <span class="expand-kpi">千萬NTD 單月</span>
+              </div>
+            </div>
+            <a href="2020.html" class="detail-link">查看完整故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2021-2023 蝦皮 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2021)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2021 — 2023</div>
+          <div class="card-punchline">轉戰台灣蝦皮。25個月，從零到 780 萬 NTD。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                獨立經營蝦皮汽車精品店，負責選品、定價、行銷、客服全流程。25個月累計總營業額 <strong>NT$780萬</strong>，單月高峰 NT$54.9萬（2022年12月）。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">總計 NT$780萬</span>
+                <span class="expand-kpi">單月高峰 54.9萬</span>
+                <span class="expand-kpi">25個月數據</span>
+              </div>
+            </div>
+            <a href="shopee.html" class="detail-link">查看完整戰績 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022-2023 美國客戶 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2022)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2022 — 2023</div>
+          <div class="card-punchline">同時操盤美國投影幕客戶。Q1-Q3 業績 $94.8萬美元，YoY +20.9%。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                操盤美國客戶 <strong>13 條主力產品線</strong>，2023 年 Q1-Q3 業績達 USD $94.8萬，YoY 成長 20.9%。精準淡旺季策略使 2月、3月創下 80% YoY 彈跳，單月最高突破 USD $14.7萬。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">$94.8萬 USD Q1-Q3</span>
+                <span class="expand-kpi">+20.9% YoY</span>
+                <span class="expand-kpi">13條產品線</span>
+                <span class="expand-kpi">單月最高 $14.7萬</span>
+              </div>
+            </div>
+            <a href="us-client.html" class="detail-link">查看完整故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023-2024 彩券行 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2023)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">2023 — 2024</div>
+          <div class="card-punchline">第一次有實體店面。彩券行讓我真正理解線下的成本結構。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                2023年9月至2024年12月，獨立經營<strong>台灣彩券行</strong>。首次接觸實體店面完整管銷：租金、人力、庫存、現金流，建立對線下損益結構的第一手認識。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">實體店面管銷</span>
+                <span class="expand-kpi">現金流管理</span>
+                <span class="expand-kpi">損益平衡實戰</span>
+              </div>
+            </div>
+            <a href="lottery.html" class="detail-link">查看完整故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 現在 -->
+    <div class="chapter reveal" style="--dot-color: var(--y2024)">
+      <div class="chapter-card">
+        <div class="card-top" onclick="toggleChapter(this)">
+          <div class="card-year">現在 <span class="present-badge"><span class="present-dot"></span>進行式</span></div>
+          <div class="card-punchline">下一章，還沒寫完。我在找能把這些能力放大的舞台。</div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="expand-panel">
+          <div class="expand-inner">
+            <div>
+              <div class="expand-summary">
+                從個人賣家到協助上市公司，從台灣市場到美國多國站點——6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。
+              </div>
+              <div class="expand-kpis">
+                <span class="expand-kpi">跨境電商策略</span>
+                <span class="expand-kpi">多平台營運</span>
+                <span class="expand-kpi">產品線管理</span>
+                <span class="expand-kpi">數據驅動決策</span>
+              </div>
+            </div>
+            <a href="contact.html" class="detail-link">聯絡我 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleChapter(topEl) {
+  const chapter = topEl.closest('.chapter');
+  const isOpen = chapter.classList.contains('open');
+  document.querySelectorAll('.chapter.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) chapter.classList.add('open');
+}
+
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

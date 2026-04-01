@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>視宇 · 正職軌道 — 我的故事</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root { --accent: var(--y2019); }
+.hero-blob { position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:var(--y2019);border-radius:50%;filter:blur(120px);opacity:.04;pointer-events:none; }
+.yr-cards { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px; }
+.yr-card { background:#ffffff;border:0.5px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 10px;text-align:center;transition:all .3s; }
+.yr-card:hover { transform:translateY(-3px); }
+.yr-card.highlight { border-color:var(--y2019);background:rgba(37,99,235,0.06); }
+.yr-card-yr { font-size:11px;font-weight:500;color:#888884;margin-bottom:6px;letter-spacing:.06em; }
+.yr-card.highlight .yr-card-yr { color:var(--y2019); }
+.yr-card-val { font-size:15px;font-weight:700;color:#1a1a18;margin-bottom:4px; }
+.yr-card-yoy { font-size:12px;font-weight:500;color:#059669; }
+.tank-row { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px; }
+.tank-card { background:rgba(0,0,0,0.02);border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:18px; }
+.tank-card-yr { font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--y2019);margin-bottom:8px;font-weight:500; }
+.tank-card-val { font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#1a1a18;margin-bottom:4px; }
+.tank-card-sub { font-size:12px;color:#888884;line-height:1.5; }
+.milestone-list { display:flex;flex-direction:column;gap:0; }
+.milestone { display:grid;grid-template-columns:80px 1fr;gap:16px;padding-bottom:20px; }
+.milestone:last-child { padding-bottom:0; }
+.ms-yr { font-size:12px;font-weight:500;color:var(--y2019);text-align:right;padding-top:2px; }
+.ms-right { padding-left:20px;border-left:1px solid var(--border);position:relative; }
+.ms-right::before { content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--y2019);box-shadow:0 0 0 3px var(--bg); }
+.ms-title { font-size:14px;font-weight:500;color:#1a1a18;margin-bottom:4px; }
+.ms-desc { font-size:13px;color:#888884;line-height:1.65; }
+.ms-desc strong { color:#1a1a18;font-weight:500; }
+
+/* proof images section */
+.proof-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px; }
+.proof-img { border-radius:8px;border:0.5px solid rgba(0,0,0,0.08);overflow:hidden;aspect-ratio:16/10;background:rgba(0,0,0,0.02);display:flex;align-items:center;justify-content:center; }
+.proof-img img { width:100%;height:100%;object-fit:cover;transition:transform .3s; }
+.proof-img:hover img { transform:scale(1.03); }
+.proof-caption { font-size:11px;color:#888884;margin-top:6px;text-align:center; }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-back"><span class="arrow">←</span> 回到故事</a>
+  <span class="site-nav-title">我的故事</span>
+  <span class="site-nav-year" style="color:var(--y2019);border-color:color-mix(in srgb,var(--y2019) 40%,transparent);background:color-mix(in srgb,var(--y2019) 10%,transparent)">視宇 · 2018—現在</span>
+</nav>
+
+<div class="page-hero" style="position:relative;overflow:hidden;">
+  <div class="hero-blob"></div>
+  <div class="page-hero-eyebrow">視宇電商 · 正職軌道</div>
+  <h1 class="page-hero-title" style="color:var(--y2019)">4.1倍。<br>這是我回來後的數字。</h1>
+  <p class="page-hero-sub">2018年以業務身分加入草創期的視宇，2021年離開探索，2023年被請回擔任業務主管，2024年升任<strong>營運長（COO）</strong>。2021→2025，公司業績成長 <strong>4.1 倍</strong>。</p>
+</div>
+
+<div class="page-content">
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>核心里程碑</span></div>
+    <div class="kpi-row">
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2019) 30%,transparent);background:color-mix(in srgb,var(--y2019) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2019)">4.1x</div><div class="kpi-desc">2021→2025 成長倍數</div>
+      </div>
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2019) 30%,transparent);background:color-mix(in srgb,var(--y2019) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2019)">+86.5%</div><div class="kpi-desc">2023 回歸當年 YoY</div>
+      </div>
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2019) 30%,transparent);background:color-mix(in srgb,var(--y2019) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2019)">NT$3,471萬</div><div class="kpi-desc">2025 年度業績</div>
+      </div>
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2019) 30%,transparent);background:color-mix(in srgb,var(--y2019) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2019)">NT$1,007萬</div><div class="kpi-desc">2025 個人業績</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>公司年度業績（NTD）</span></div>
+    <div style="background:rgba(0,0,0,0.02);border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:24px;">
+      <div style="position:relative;width:100%;height:200px;">
+        <canvas id="siyuChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>逐年細看</span></div>
+    <div class="yr-cards">
+      <div class="yr-card">
+        <div class="yr-card-yr">2021</div>
+        <div class="yr-card-val">NT$840萬</div>
+        <div class="yr-card-yoy" style="color:#888884">基準年</div>
+      </div>
+      <div class="yr-card">
+        <div class="yr-card-yr">2022</div>
+        <div class="yr-card-val">NT$1,199萬</div>
+        <div class="yr-card-yoy">+42.6%</div>
+      </div>
+      <div class="yr-card highlight">
+        <div class="yr-card-yr">2023 ← 回歸</div>
+        <div class="yr-card-val">NT$2,235萬</div>
+        <div class="yr-card-yoy">+86.5%</div>
+      </div>
+      <div class="yr-card">
+        <div class="yr-card-yr">2024</div>
+        <div class="yr-card-val">NT$3,093萬</div>
+        <div class="yr-card-yoy">+38.4%</div>
+      </div>
+      <div class="yr-card">
+        <div class="yr-card-yr">2025</div>
+        <div class="yr-card-val">NT$3,471萬</div>
+        <div class="yr-card-yoy">+12.2%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>我的個人業績（Tank）</span></div>
+    <div class="tank-row">
+      <div class="tank-card">
+        <div class="tank-card-yr">2023（下半年）</div>
+        <div class="tank-card-val">NT$174萬</div>
+        <div class="tank-card-sub">6月起計入，回歸後快速上軌</div>
+      </div>
+      <div class="tank-card">
+        <div class="tank-card-yr">2024（全年）</div>
+        <div class="tank-card-val">NT$856萬</div>
+        <div class="tank-card-sub">升任 COO，業績同步爆發</div>
+      </div>
+      <div class="tank-card">
+        <div class="tank-card-yr">2025（全年）</div>
+        <div class="tank-card-val">NT$1,007萬</div>
+        <div class="tank-card-sub">首次突破千萬個人業績</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>職涯軌跡</span></div>
+    <div class="milestone-list">
+      <div class="milestone">
+        <div class="ms-yr">2018</div>
+        <div class="ms-right">
+          <div class="ms-title">業務（草創期加入）</div>
+          <div class="ms-desc">公司草創，從黃頁打電話開始，自費成為 Amazon 賣家，用實戰說服力逐漸成為視宇業績最好的業務。</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ms-yr">2021</div>
+        <div class="ms-right">
+          <div class="ms-title">主動離職，全職探索</div>
+          <div class="ms-desc">帶著業務經驗和電商實戰能力出發，兩年內操盤蝦皮、美國客戶等多個項目，累積跨市場視野。</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ms-yr">2023</div>
+        <div class="ms-right">
+          <div class="ms-title">業務主管（被請回）</div>
+          <div class="ms-desc">視宇邀請回歸，帶著全新視野重新出發。當年公司業績 <strong>YoY +86.5%</strong>，達 NT$2,235 萬。</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ms-yr">2024</div>
+        <div class="ms-right">
+          <div class="ms-title">升任營運長（COO）</div>
+          <div class="ms-desc">負責整體營運數據分析與執行策略，業績持續成長至 NT$3,093 萬，YoY <strong>+38.4%</strong>。</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ms-yr">2025—</div>
+        <div class="ms-right">
+          <div class="ms-title">營運長（持續）</div>
+          <div class="ms-desc">個人業績首破千萬，公司全年 NT$3,471 萬。2026 年 1–2 月已達 NT$499 萬，持續成長中。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 截圖證明區塊 — 之後放圖片用 -->
+  <!-- 
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>數據佐證</span></div>
+    <div class="proof-grid">
+      <div>
+        <div class="proof-img"><img src="images/proof-2023.jpg" alt="2023業績截圖"></div>
+        <div class="proof-caption">2023 年度業績後台截圖</div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>這段旅程的意義</span></div>
+    <div class="reflection-block" style="border-color:var(--y2019)">
+      <p class="reflection-text">離開不是放棄，是為了帶著更多東西回來。兩年的創業經歷讓我真正理解了客戶在想什麼、市場在要什麼。當我重新坐回業務的位置，我說的每一句話都有數字撐腰。</p>
+    </div>
+  </div>
+
+
+  <!-- 公開演講 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>公開演講 ／ 活動</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;">
+      <div>
+        <div style="border-radius:10px;overflow:hidden;border:0.5px solid rgba(0,0,0,0.08);">
+          <img src="images/event-gs1-amazon.png" alt="GS1 x Amazon 跨境電商生態圈趨勢講座" style="width:100%;display:block;">
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-size:13px;font-weight:500;color:#1a1a18;margin-bottom:4px;">GS1 × Amazon 跨境電商趨勢講座</div>
+          <div style="font-size:12px;color:#888884;line-height:1.6;">與 GS1 合辦，以「秩宇 Wiser 營運長」身分上台主講亞馬遜成長曲線與 AI × TikTok 導流策略。</div>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius:10px;overflow:hidden;border:0.5px solid rgba(0,0,0,0.08);">
+          <img src="images/event-ieat.png" alt="IEAT 數位貿易博覽會" style="width:100%;display:block;">
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-size:13px;font-weight:500;color:#1a1a18;margin-bottom:4px;">IEAT 數位貿易博覽會 × 亞馬遜全球開店博覽會</div>
+          <div style="font-size:12px;color:#888884;line-height:1.6;">2026 年 4/29–4/30，以營運長身分親授 AI 導流實戰，線下活動與線上直播同步進行。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 短影片 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>短影片（視宇官方）</span></div>
+    <p style="font-size:13px;color:#888884;margin-bottom:20px;line-height:1.7;">以下為視宇官方帳號拍攝的短影片，由我出鏡主講跨境電商實戰內容。</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+      <div style="border-radius:10px;overflow:hidden;border:0.5px solid rgba(0,0,0,0.08);background:rgba(0,0,0,0.02);">
+        <div style="position:relative;padding-bottom:177.8%;height:0;overflow:hidden;">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1555391885727979&show_text=false&width=200"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+            allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div style="padding:10px 12px;font-size:12px;color:#888884;">短影片 · 跨境電商實戰分享</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:0.5px solid rgba(0,0,0,0.08);background:rgba(0,0,0,0.02);">
+        <div style="position:relative;padding-bottom:177.8%;height:0;overflow:hidden;">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4056642337935611&show_text=false&width=200"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+            allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div style="padding:10px 12px;font-size:12px;color:#888884;">短影片 · 跨境電商實戰分享</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:0.5px solid rgba(0,0,0,0.08);background:rgba(0,0,0,0.02);">
+        <div style="position:relative;padding-bottom:177.8%;height:0;overflow:hidden;">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1584244366055739&show_text=false&width=200"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+            allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div style="padding:10px 12px;font-size:12px;color:#888884;">短影片 · 跨境電商實戰分享</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="index.html" class="page-nav-btn">← 回到故事首頁</a>
+  <a href="contact.html" class="page-nav-btn">聯絡我 →</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+new Chart(document.getElementById('siyuChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2021', '2022', '2023 ← 回歸', '2024', '2025'],
+    datasets: [{
+      data: [8406766, 11985364, 22347721, 30933855, 34709347],
+      backgroundColor: ['rgba(37,99,235,0.5)','rgba(37,99,235,0.5)','rgba(37,99,235,0.9)','rgba(37,99,235,0.5)','rgba(37,99,235,0.5)'],
+      borderRadius: 4, borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => 'NT$' + Math.round(ctx.parsed.y / 10000) + '萬' } }
+    },
+    scales: {
+      x: { ticks: { font:{size:11}, color: isDark?'rgba(255,255,255,0.4)':'rgba(0,0,0,0.35)' }, grid:{display:false} },
+      y: { ticks: { font:{size:11}, color: isDark?'rgba(255,255,255,0.4)':'rgba(0,0,0,0.35)', callback: v => 'NT$'+Math.round(v/10000)+'萬' }, grid:{color:isDark?'rgba(0,0,0,0.07)':'rgba(0,0,0,0.06)'} }
+    }
+  }
+});
+</script>
+</body>
+</html>

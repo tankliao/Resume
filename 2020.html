@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2020 · Twitch 五國站點 — 我的故事</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root { --accent: var(--y2020); }
+.page-hero { position: relative; overflow: hidden; }
+.hero-blob {
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: var(--y2020);
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.07;
+  pointer-events: none;
+}
+.flag-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+.flag-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; color: #555555;
+  padding: 8px 16px;
+  background: rgba(0,0,0,0.02);
+  border: 0.5px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+.oncall-box {
+  background: color-mix(in srgb, var(--y2020) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--y2020) 25%, transparent);
+  border-radius: 10px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.oncall-icon { font-size: 32px; flex-shrink: 0; }
+.oncall-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--y2020);
+  margin-bottom: 8px;
+}
+.oncall-desc { font-size: 14px; line-height: 1.7; color: #555555; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-back"><span class="arrow">←</span> 回到故事</a>
+  <span class="site-nav-title">我的故事</span>
+  <span class="site-nav-year" style="color:var(--y2020);border-color:color-mix(in srgb,var(--y2020) 40%,transparent);background:color-mix(in srgb,var(--y2020) 10%,transparent)">2020</span>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-blob"></div>
+  <div class="page-hero-eyebrow">2020 · 破圈時刻</div>
+  <h1 class="page-hero-title" style="color:var(--y2020)">美國上市公司<br>敲門了。</h1>
+  <p class="page-hero-sub">
+    Twitch 的台灣供應商找到我，希望透過優化 Amazon 五國站點來提升出貨量。從建站、上架、在地化到即時維運，TwitchCon 活動當天 <strong>24hr On-Call</strong>，12月創下破千萬（NTD）單月營業額。
+  </p>
+</div>
+
+<div class="page-content">
+
+  <!-- KPI -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>核心成果</span></div>
+    <div class="kpi-row">
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2020) 30%,transparent);background:color-mix(in srgb,var(--y2020) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2020)">5國</div>
+        <div class="kpi-desc">Amazon 站點建置</div>
+      </div>
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2020) 30%,transparent);background:color-mix(in srgb,var(--y2020) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2020)">24hr</div>
+        <div class="kpi-desc">TwitchCon On-Call</div>
+      </div>
+      <div class="kpi" style="border-color:color-mix(in srgb,var(--y2020) 30%,transparent);background:color-mix(in srgb,var(--y2020) 6%,transparent)">
+        <div class="kpi-val" style="color:var(--y2020)">千萬+</div>
+        <div class="kpi-desc">2020/12 單月營業額（NTD）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 任務範圍 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>任務範圍</span></div>
+    <div class="card-grid">
+      <div class="card full">
+        <div class="card-label" style="color:var(--y2020)">🌍 五國站點建置</div>
+        <div class="flag-row">
+          <div class="flag-item">🇺🇸 美國（主站）</div>
+          <div class="flag-item">🇬🇧 英國</div>
+          <div class="flag-item">🇩🇪 德國</div>
+          <div class="flag-item">🇦🇺 澳洲</div>
+          <div class="flag-item">🇯🇵 日本</div>
+        </div>
+        <div class="card-body" style="margin-top:16px;">
+          負責各站點的 <strong>Amazon 賣家後台建置</strong>、商品上架、Listing 在地化調整、物流方案規劃，確保五個市場同步運作。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 店面截圖 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>實際店面截圖</span></div>
+    <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(5,150,105,0.2);max-width:480px;">
+      <img src="images/twitch-amazon-store.png" alt="Twitch Amazon 店面" style="width:100%;display:block;">
+    </div>
+    <div style="font-size:12px;color:#888884;margin-top:10px;line-height:1.6;">
+      Twitch 官方 Amazon 店面截圖 — Hoodie、Glitch Pillow 等商品均為當時實際上架管理的品項。
+    </div>
+  </div>
+
+  <!-- TwitchCon -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>TwitchCon 決戰時刻</span></div>
+    <div class="oncall-box">
+      <div class="oncall-icon">⚡</div>
+      <div>
+        <div class="oncall-title">24小時 On-Call 待命</div>
+        <div class="oncall-desc">
+          配合 TwitchCon 大型活動，活動當天全天候待命，即時處理五個站點在活動高峰期間的平台臨時狀況，確保訂單流程零中斷、活動期間交易順暢完成。<br><br>
+          這是第一次在真正的高壓環境下，獨立負責跨國平台的即時維運。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 技能 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>這一年用到的能力</span></div>
+    <div class="chips">
+      <span class="chip">Amazon 多站點管理</span>
+      <span class="chip">跨國 Listing 在地化</span>
+      <span class="chip">多幣別定價策略</span>
+      <span class="chip">國際物流規劃</span>
+      <span class="chip">平台即時維運</span>
+      <span class="chip">高壓環境決策</span>
+      <span class="chip">英文溝通協作</span>
+    </div>
+  </div>
+
+  <!-- 反思 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>這一年學到的事</span></div>
+    <div class="reflection-block" style="border-color:var(--y2020)">
+      <p class="reflection-text">
+        這是第一次把自己的電商能力「賣給別人」。從個人賣家變成替企業解決問題，讓我理解到：真正的專業，是能在任何規模下複製成功的系統。Twitch 給了我一個舞台，讓我知道自己在大規模戰場上也能站得住腳。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="2019.html" class="page-nav-btn">← 2019 · 爆品驗證</a>
+  <a href="shopee.html" class="page-nav-btn">2021–2023 · 蝦皮戰績 →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

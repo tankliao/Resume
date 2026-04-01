@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2018 · 起點 — 我的故事</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:var(--y2018)}.hero-blob{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:var(--y2018);border-radius:50%;filter:blur(120px);opacity:.04;pointer-events:none}</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-back"><span class="arrow">←</span> 回到故事</a>
+  <span class="site-nav-title">我的故事</span>
+  <span class="site-nav-year" style="color:var(--y2018);border-color:color-mix(in srgb,var(--y2018) 40%,transparent);background:color-mix(in srgb,var(--y2018) 10%,transparent)">2018</span>
+</nav>
+<div class="page-hero">
+  <div class="hero-blob"></div>
+  <div class="page-hero-eyebrow">2018 · 起點</div>
+  <h1 class="page-hero-title" style="color:var(--y2018)">沒人教、沒資源，<br>所以我自己學、自己做。</h1>
+  <p class="page-hero-sub">成為 <strong>Amazon + eBay 個人賣家</strong>，從零自學跨境電商的一切——選品、物流、Listing、定價、競品分析。沒有課程，只有數字和失敗。</p>
+</div>
+<div class="page-content">
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>這一年在學的事</span></div>
+    <div class="card-grid">
+      <div class="card"><div class="card-label" style="color:var(--y2018)">🛒 平台入門</div><div class="card-body">從開設賣家帳號開始，摸索 <strong>Amazon Seller Central</strong> 和 eBay 後台的每一個功能，理解平台規則和演算法邏輯。</div></div>
+      <div class="card"><div class="card-label" style="color:var(--y2018)">🔍 選品方法論</div><div class="card-body">研究市場需求缺口，學習用工具分析競品銷量、評論、定價，建立第一套<strong>爆品篩選邏輯</strong>。</div></div>
+      <div class="card"><div class="card-label" style="color:var(--y2018)">📦 跨境物流</div><div class="card-body">了解國際運輸成本結構、FBA 倉儲邏輯、報關文件，把物流成本納入選品評估。</div></div>
+      <div class="card"><div class="card-label" style="color:var(--y2018)">✍️ Listing 優化</div><div class="card-body">學習英文標題、bullet points、A+ content 的寫法，讓商品在搜尋結果中脫穎而出。</div></div>
+    </div>
+  </div>
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>核心技能</span></div>
+    <div class="chips">
+      <span class="chip">Amazon Seller Central</span><span class="chip">eBay 賣家後台</span><span class="chip">FBA 倉儲</span><span class="chip">跨境物流</span><span class="chip">選品研究</span><span class="chip">Listing 優化</span><span class="chip">競品分析</span><span class="chip">英文文案</span>
+    </div>
+  </div>
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>反思</span></div>
+    <div class="reflection-block" style="border-color:var(--y2018)">
+      <p class="reflection-text">公司沒有電商資源，所以我自己出錢出時間去當賣家。這不只是學習，而是用真實的虧損和獲利逼自己搞懂每一個環節。後來跟客戶談，說的每一句話都是親身經歷——這是任何課程給不了的說服力。</p>
+    </div>
+  </div>
+</div>
+<div class="page-nav">
+  <a href="index.html" class="page-nav-btn">← 回到故事首頁</a>
+  <a href="2019.html" class="page-nav-btn">2019 · 爆品驗證 →</a>
+</div>
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
