@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我的故事 — 電商創業者</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
 /* ── INDEX-ONLY STYLES ── */
@@ -33,54 +33,63 @@
 .intro-content { position: relative; z-index: 1; max-width: 680px; }
 
 .intro-label {
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #888884;
-  margin-bottom: 28px;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 20px;
   animation: fadeUp 0.7s ease both;
 }
 .intro-name {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: clamp(56px, 10vw, 120px);
-  font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
   animation: fadeUp 0.7s 0.1s ease both;
 }
+.intro-en {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  display: block;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
 .intro-name .ghost {
-  -webkit-text-stroke: 1.5px rgba(124,58,237,0.3);
+  -webkit-text-stroke: 2px rgba(124,58,237,0.25);
   color: transparent;
   display: block;
 }
 .intro-sub {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #888884;
+  font-size: 18px;
+  line-height: 2;
+  color: #333;
   margin-bottom: 48px;
   animation: fadeUp 0.7s 0.25s ease both;
 }
-.intro-sub strong { color: #1a1a18; font-weight: 500; }
+.intro-sub strong { color: #1a1a18; font-weight: 700; }
 
 .scroll-cta {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: #888884;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
   animation: fadeUp 0.7s 0.4s ease both;
 }
 .scroll-arrow {
   width: 1px; height: 48px;
-  background: linear-gradient(to bottom, var(--muted), transparent);
+  background: linear-gradient(to bottom, #444, transparent);
   animation: arrowBob 2s ease-in-out infinite;
 }
 @keyframes arrowBob {
-  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  0%,100% { opacity: 0.4; transform: scaleY(1); }
   50% { opacity: 1; transform: scaleY(1.3); }
 }
 
@@ -95,9 +104,9 @@
   margin-bottom: 64px;
 }
 .tl-header h2 {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.02em;
 }
 .tl-header p { font-size: 14px; color: #888884; margin-top: 10px; }
@@ -296,16 +305,16 @@
   <div class="intro-bg"></div>
   <div class="grid-lines"></div>
   <div class="intro-content">
-    <div class="intro-label">電商創業者 · COO · 2018 — 現在</div>
+    <div class="intro-label">電商創業者 · 營運長 COO · 2018 — 現在</div>
     <h1 class="intro-name">
       廖哲志
+      <span class="intro-en">Tank Liao</span>
       <span class="ghost">的故事</span>
     </h1>
     <p class="intro-sub">
-      從一個人在家摸索 Amazon 賣家後台，<br>
-      到協助<strong>美國上市公司</strong>建置五國站點，<br>
-      再到獨立操盤<strong>破百萬美元</strong>的產品線。<br>
-      每一年，都是一個新的賭注。
+      沒有資源、沒有人教——自己摸索供應鏈、物流、金流，成為爆品賣家。<br>
+      再到協助<strong>美國上市公司</strong>建置五國站點，<br>
+      獨立操盤<strong>破百萬美元</strong>產品線。<br>每一年，都是給自己一個新的成長任務。
     </p>
     <div class="scroll-cta">
       <span>展開我的每一年</span>
@@ -318,7 +327,7 @@
 <div class="timeline-section">
   <div class="tl-header reveal">
     <h2>章節目錄</h2>
-    <p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p>
+    <p style="font-size:16px;color:#333;font-weight:400;margin-top:10px;">點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p>
   </div>
 
   <div class="chapters">
@@ -334,7 +343,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 成為 <strong>Amazon + eBay 個人賣家</strong>，從零自學跨境電商。研究選品邏輯、競品分析、Listing 優化，靠自己摸索出挖掘爆品的方法。
               </div>
               <div class="expand-kpis">
@@ -361,7 +370,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 找到可複製的爆品邏輯，5月至8月單月營業額穩定在 <strong>USD $14,000–$18,000</strong>，平均利潤率維持 50%，所有數據截圖均有留存。
               </div>
               <div class="expand-kpis">
@@ -387,7 +396,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 協助 <strong>Twitch（Amazon 旗下上市公司）</strong> 建置美國、英國、德國、澳洲、日本五個 Amazon 站點。TwitchCon 活動當天 24hr On-Call，12月創下破千萬（NTD）單月營業額。
               </div>
               <div class="expand-kpis">
@@ -413,7 +422,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 獨立經營蝦皮汽車精品店，負責選品、定價、行銷、客服全流程。25個月累計總營業額 <strong>NT$780萬</strong>，單月高峰 NT$54.9萬（2022年12月）。
               </div>
               <div class="expand-kpis">
@@ -439,7 +448,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 操盤美國客戶 <strong>13 條主力產品線</strong>，2023 年 Q1-Q3 業績達 USD $94.8萬，YoY 成長 20.9%。精準淡旺季策略使 2月、3月創下 80% YoY 彈跳，單月最高突破 USD $14.7萬。
               </div>
               <div class="expand-kpis">
@@ -466,7 +475,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 2023年9月至2024年12月，獨立經營<strong>台灣彩券行</strong>。首次接觸實體店面完整管銷：租金、人力、庫存、現金流，建立對線下損益結構的第一手認識。
               </div>
               <div class="expand-kpis">
@@ -492,7 +501,7 @@
         <div class="expand-panel">
           <div class="expand-inner">
             <div>
-              <div class="expand-summary">
+              <div class="expand-summary" style="font-size:15px;color:#333;line-height:1.85;">
                 從個人賣家到協助上市公司，從台灣市場到美國多國站點——6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。
               </div>
               <div class="expand-kpis">

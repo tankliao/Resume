@@ -4,9 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2018 · 起點 — 我的故事</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>:root{--accent:var(--y2018)}.hero-blob{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:var(--y2018);border-radius:50%;filter:blur(120px);opacity:.04;pointer-events:none}</style>
+<style>
+:root{--accent:var(--y2018)}
+.page-hero-title { font-family:'Noto Sans TC',sans-serif; font-weight:900; }
+.hero-blob{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:var(--y2018);border-radius:50%;filter:blur(120px);opacity:.04;pointer-events:none}
+.card-label {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  margin-bottom: 10px;
+}
+.card-body {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: #333 !important;
+}
+.colored-chips { display:flex;flex-wrap:wrap;gap:10px; }
+.c-chip {
+  font-size:15px; padding:9px 20px; border-radius:100px; font-weight:500;
+  border:1.5px solid; transition:transform 0.2s;
+}
+.c-chip:hover { transform:translateY(-2px); }
+.ai-section { background:#f0edf8; border-radius:12px; padding:24px 28px; margin-top:16px; }
+.ai-label { font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;font-weight:700;margin-bottom:14px; }
+.ai-chips { display:flex;flex-wrap:wrap;gap:10px; }
+.ai-chip {
+  font-size:15px; padding:9px 20px; border-radius:100px;
+  background:#fff; border:1.5px solid #c4b5fd; color:#5b21b6; font-weight:500;
+  transition:all 0.2s;
+}
+.ai-chip:hover { background:#7c3aed; color:#fff; border-color:#7c3aed; transform:translateY(-2px); }
+.reflection-block {
+  border-left:4px solid var(--y2018);
+  padding:28px 32px;
+  background:#faf9ff;
+  border-radius:0 8px 8px 0;
+}
+.reflection-text {
+  font-family:'Noto Serif TC',serif;
+  font-size:17px !important;
+  line-height:2.1 !important;
+  color:#222 !important;
+  font-style:italic;
+}
+</style>
 </head>
 <body>
 <nav class="site-nav">
@@ -18,9 +62,10 @@
   <div class="hero-blob"></div>
   <div class="page-hero-eyebrow">2018 · 起點</div>
   <h1 class="page-hero-title" style="color:var(--y2018)">沒人教、沒資源，<br>所以我自己學、自己做。</h1>
-  <p class="page-hero-sub">成為 <strong>Amazon + eBay 個人賣家</strong>，從零自學跨境電商的一切——選品、物流、Listing、定價、競品分析。沒有課程，只有數字和失敗。</p>
+  <p class="page-hero-sub">在視宇擔任業務期間，為了讓自己更有說服力，<strong>自費成為 Amazon + eBay 賣家</strong>——自己找供應商、建產品、搞定物流金流，用真實的戰場學習跨境電商。</p>
 </div>
 <div class="page-content">
+
   <div class="section-block reveal">
     <div class="section-block-label"><span>這一年在學的事</span></div>
     <div class="card-grid">
@@ -30,18 +75,41 @@
       <div class="card"><div class="card-label" style="color:var(--y2018)">✍️ Listing 優化</div><div class="card-body">學習英文標題、bullet points、A+ content 的寫法，讓商品在搜尋結果中脫穎而出。</div></div>
     </div>
   </div>
+
   <div class="section-block reveal">
     <div class="section-block-label"><span>核心技能</span></div>
-    <div class="chips">
-      <span class="chip">Amazon Seller Central</span><span class="chip">eBay 賣家後台</span><span class="chip">FBA 倉儲</span><span class="chip">跨境物流</span><span class="chip">選品研究</span><span class="chip">Listing 優化</span><span class="chip">競品分析</span><span class="chip">英文文案</span>
+    <div class="colored-chips">
+      <span class="c-chip" style="color:#2563eb;border-color:#bfdbfe;background:#eff6ff;">Amazon Seller Central</span>
+      <span class="c-chip" style="color:#059669;border-color:#a7f3d0;background:#ecfdf5;">eBay 賣家後台</span>
+      <span class="c-chip" style="color:#d97706;border-color:#fde68a;background:#fffbeb;">FBA 倉儲</span>
+      <span class="c-chip" style="color:#7c3aed;border-color:#ddd6fe;background:#f5f3ff;">跨境物流</span>
+      <span class="c-chip" style="color:#db2777;border-color:#fbcfe8;background:#fdf2f8;">選品研究</span>
+      <span class="c-chip" style="color:#0891b2;border-color:#a5f3fc;background:#ecfeff;">Listing 優化</span>
+      <span class="c-chip" style="color:#b45309;border-color:#fcd34d;background:#fffbeb;">競品分析</span>
+    </div>
+    <div class="ai-section">
+      <div class="ai-label">AI 工具能力</div>
+      <div class="ai-chips">
+        <span class="ai-chip">Claude</span>
+        <span class="ai-chip">Manus</span>
+        <span class="ai-chip">Gemini</span>
+        <span class="ai-chip">Python</span>
+        <span class="ai-chip">GitHub</span>
+      </div>
     </div>
   </div>
+
   <div class="section-block reveal">
     <div class="section-block-label"><span>反思</span></div>
-    <div class="reflection-block" style="border-color:var(--y2018)">
-      <p class="reflection-text">公司沒有電商資源，所以我自己出錢出時間去當賣家。這不只是學習，而是用真實的虧損和獲利逼自己搞懂每一個環節。後來跟客戶談，說的每一句話都是親身經歷——這是任何課程給不了的說服力。</p>
+    <div class="reflection-block" style="background:#f5f3ff;border-left:4px solid #7c3aed;">
+      <p class="reflection-text" style="color:#1a1a18;">
+        <span style="color:#7c3aed;font-weight:700;">公司沒有電商資源</span>，所以我自己出錢出時間去當賣家。<br><br>
+        這不只是學習，而是用<span style="color:#2563eb;font-weight:700;">真實的虧損和獲利</span>逼自己搞懂每一個環節。<br><br>
+        後來跟客戶談，說的每一句話都是親身經歷——<span style="color:#059669;font-weight:700;">這是任何課程給不了的說服力。</span>
+      </p>
     </div>
   </div>
+
 </div>
 <div class="page-nav">
   <a href="index.html" class="page-nav-btn">← 回到故事首頁</a>
