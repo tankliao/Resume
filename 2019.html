@@ -13,6 +13,20 @@
 .chart-legend { display:flex;gap:20px;margin-bottom:16px; }
 .legend-item { display:flex;align-items:center;gap:8px;font-size:14px;color:#333;font-weight:500; }
 .legend-dot { width:12px;height:12px;border-radius:3px;flex-shrink:0; }
+
+.lightbox-overlay {
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);
+  z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;
+}
+.lightbox-overlay.active { display:flex; }
+.lightbox-img { max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain; }
+.lightbox-close {
+  position:fixed;top:24px;right:32px;color:#fff;font-size:32px;
+  cursor:pointer;line-height:1;font-weight:300;z-index:10000;
+}
+.proof-img-wrap { cursor:zoom-in;overflow:hidden;border-radius:8px;border:1px solid rgba(0,0,0,0.1); }
+.proof-img-wrap img { width:100%;display:block;transition:transform .3s; }
+.proof-img-wrap:hover img { transform:scale(1.03); }
 </style>
 </head>
 <body>
@@ -207,6 +221,24 @@ new Chart(document.getElementById('revenueChart'), {
     }
   }
 });
+</script>
+
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
