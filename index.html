@@ -13,11 +13,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 24px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 80px 8% 80px 8%;
   position: relative;
   overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 .intro-bg {
   position: absolute; inset: 0; z-index: 0;
@@ -30,7 +33,7 @@
     linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-.intro-content { position: relative; z-index: 1; max-width: 680px; }
+.intro-content { position: relative; z-index: 1; max-width: 600px; }
 
 .intro-label {
   font-size: 16px;
@@ -96,7 +99,7 @@
 /* ── TIMELINE ── */
 .timeline-section {
   padding: 40px 24px 120px;
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 .tl-header {
@@ -316,9 +319,31 @@
       再到協助<strong>美國上市公司</strong>建置五國站點，<br>
       獨立操盤<strong>破百萬美元</strong>產品線。<br>每一年，都是給自己一個新的成長任務。
     </p>
+    <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-style:italic;color:#666;border-left:3px solid #e2b96b;padding-left:14px;margin-bottom:36px;line-height:1.9;">
+      "求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"
+    </div>
     <div class="scroll-cta">
       <span>展開我的每一年</span>
       <div class="scroll-arrow"></div>
+    </div>
+  </div>
+  <!-- Right side floating stats -->
+  <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);z-index:1;display:flex;flex-direction:column;gap:20px;pointer-events:none;" class="hero-stats-panel">
+    <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:20px 24px;text-align:center;min-width:130px;">
+      <div style="font-size:32px;font-weight:900;color:#2563eb;line-height:1;">10+</div>
+      <div style="font-size:12px;color:#666;margin-top:4px;font-weight:500;">年工作資歷</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:20px 24px;text-align:center;">
+      <div style="font-size:32px;font-weight:900;color:#059669;line-height:1;">200+</div>
+      <div style="font-size:12px;color:#666;margin-top:4px;font-weight:500;">廠商電商輔導</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:20px 24px;text-align:center;">
+      <div style="font-size:32px;font-weight:900;color:#db2777;line-height:1;">4.1x</div>
+      <div style="font-size:12px;color:#666;margin-top:4px;font-weight:500;">公司業績成長</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:20px 24px;text-align:center;">
+      <div style="font-size:32px;font-weight:900;color:#d97706;line-height:1;">NT$780萬</div>
+      <div style="font-size:12px;color:#666;margin-top:4px;font-weight:500;">蝦皮累積業績</div>
     </div>
   </div>
 </section>
@@ -331,6 +356,17 @@
   </div>
 
   <div class="chapters">
+
+    <!-- 關於我入口 -->
+    <div class="chapter reveal" style="--dot-color:#e2b96b;border:none;">
+      <div class="chapter-card" style="background:linear-gradient(135deg,#fffbeb,#fff8f0);border:1.5px solid #e2b96b;">
+        <div class="card-top" style="cursor:default;">
+          <div class="card-year" style="color:#92400e;background:#fef3c7;">👤 廖哲志 · Tank Liao</div>
+          <div class="card-punchline" style="color:#78350f;">"求知若飢，虛心若愚——失敗不是問題，害怕失敗才是"</div>
+          <a href="about.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:#e2b96b;color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;">關於我 →</a>
+        </div>
+      </div>
+    </div>
 
     <!-- 視宇正職 -->
     <div class="chapter reveal" style="--dot-color: #2563eb">
