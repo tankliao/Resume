@@ -272,25 +272,41 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
-new Chart(document.getElementById('siyuChart'), {
+const siyuChart = new Chart(document.getElementById('siyuChart'), {
   type: 'bar',
   data: {
-    labels: ['2021', '2022', '2023 ← 回歸', '2024', '2025'],
+    labels: ['2021', '2022', '2023 回歸', '2024', '2025'],
     datasets: [{
       data: [8406766, 11985364, 22347721, 30933855, 34709347],
-      backgroundColor: ['rgba(37,99,235,0.5)','rgba(37,99,235,0.5)','rgba(37,99,235,0.9)','rgba(37,99,235,0.5)','rgba(37,99,235,0.5)'],
-      borderRadius: 4, borderSkipped: false,
+      backgroundColor: ['rgba(96,165,250,0.55)','rgba(96,165,250,0.55)','rgba(37,99,235,0.9)','rgba(96,165,250,0.65)','rgba(96,165,250,0.65)'],
+      borderRadius: 6, borderSkipped: false,
     }]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
+    layout: { padding: { top: 32 } },
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: ctx => 'NT$' + Math.round(ctx.parsed.y / 10000) + '萬' } }
+      tooltip: { enabled: false }
     },
     scales: {
-      x: { ticks: { font:{size:11}, color: isDark?'rgba(255,255,255,0.4)':'rgba(0,0,0,0.35)' }, grid:{display:false} },
-      y: { ticks: { font:{size:11}, color: isDark?'rgba(255,255,255,0.4)':'rgba(0,0,0,0.35)', callback: v => 'NT$'+Math.round(v/10000)+'萬' }, grid:{color:isDark?'rgba(0,0,0,0.07)':'rgba(0,0,0,0.06)'} }
+      x: { ticks: { font:{size:15,weight:'600'}, color:'#222' }, grid:{display:false} },
+      y: { ticks: { font:{size:13}, color:'#444', callback: v => 'NT$'+Math.round(v/10000)+'萬' }, grid:{color:'rgba(0,0,0,0.07)'} }
+    },
+    animation: {
+      onComplete() {
+        const ctx = this.ctx;
+        ctx.save();
+        ctx.font = 'bold 15px sans-serif';
+        ctx.fillStyle = '#111';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        this.data.datasets[0].data.forEach((val, j) => {
+          const bar = this.getDatasetMeta(0).data[j];
+          ctx.fillText('NT$'+Math.round(val/10000)+'萬', bar.x, bar.y - 6);
+        });
+        ctx.restore();
+      }
     }
   }
 });
