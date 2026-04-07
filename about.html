@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於我 — 廖哲志 Tank Liao</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.about-hero {
+  padding: 100px 48px 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.photo-circle {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: #e8e8e4;
+  border: 3px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 14px;
+  color: #999;
+}
+.photo-circle img { width:100%;height:100%;object-fit:cover; }
+.name-block { }
+.name-zh { font-size: 42px; font-weight: 900; color: #1a1a18; line-height: 1; margin-bottom: 6px; }
+.name-en { font-size: 22px; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+.tagline {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+  line-height: 1.8;
+  padding-left: 14px;
+  border-left: 3px solid #e2b96b;
+  margin-bottom: 20px;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.meta-pill {
+  font-size: 13px; font-weight: 500;
+  padding: 5px 14px; border-radius: 100px;
+  background: #f0f0ec; color: #333;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.intro-text { font-size: 16px; line-height: 1.9; color: #333; max-width: 560px; }
+.intro-text strong { color: #1a1a18; font-weight: 700; }
+
+.about-content { max-width: 1000px; margin: 0 auto; padding: 0 48px 80px; }
+
+.info-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+.info-card {
+  background: #fff; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px; padding: 20px 22px;
+}
+.info-card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+.info-card-val { font-size: 15px; color: #222; line-height: 1.75; font-weight: 400; }
+.info-card-val strong { font-weight: 700; color: #111; }
+
+.exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
+.exp-item:last-child { border-bottom: none; }
+.exp-period { font-size: 13px; color: #888; font-weight: 500; padding-top: 3px; }
+.exp-company { font-size: 13px; font-weight: 700; color: #2563eb; margin-bottom: 3px; }
+.exp-title { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 6px; }
+.exp-desc { font-size: 14px; color: #444; line-height: 1.75; }
+
+.skill-cats { display: flex; flex-direction: column; gap: 16px; }
+.skill-cat-label { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 8px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  font-size: 13px; font-weight: 500; padding: 6px 14px;
+  border-radius: 100px; border: 1.5px solid;
+}
+
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 10px; }
+.cert-item {
+  background: #fff; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px; padding: 14px 16px;
+  font-size: 14px; color: #333; font-weight: 400;
+  border-left: 3px solid #e2b96b;
+}
+
+@media (max-width: 640px) {
+  .about-hero { grid-template-columns: 1fr; padding: 80px 20px 32px; }
+  .about-content { padding: 0 20px 60px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-back"><span class="arrow">←</span> 回到故事</a>
+  <span class="site-nav-title">關於我</span>
+  <span class="site-nav-year" style="color:#2563eb;border-color:#bfdbfe;background:#dbeafe;">About</span>
+</nav>
+
+<div class="about-hero">
+  <div class="photo-wrap">
+    <div class="photo-circle">
+      <span>照片<br>即將更新</span>
+    </div>
+    <div style="font-size:13px;color:#888;text-align:center;">廖哲志 · Tank Liao</div>
+  </div>
+  <div class="name-block">
+    <div class="name-zh">廖哲志</div>
+    <div class="name-en">Tank Liao</div>
+    <div class="tagline">
+      "求知若飢，虛心若愚<br>
+      失敗不是問題，害怕失敗才是"
+    </div>
+    <div class="meta-row">
+      <span class="meta-pill">33歲</span>
+      <span class="meta-pill">新北市新店區</span>
+      <span class="meta-pill">在職中</span>
+      <span class="meta-pill">10+ 年經歷</span>
+      <span class="meta-pill">希望職稱：營運長</span>
+    </div>
+    <p class="intro-text">
+      跨境電商出身，從第一線業務做到<strong>營運長</strong>。<br>
+      協助超過 <strong>200 間廠商</strong>規劃電商轉型，個人業績佔公司服務營業額約 <strong>50%</strong>。<br>
+      相信數據說話，相信執行力比計畫更重要。
+    </p>
+  </div>
+</div>
+
+<div class="about-content">
+
+  <!-- 個人資訊 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>個人資訊</span></div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-label">現職</div>
+        <div class="info-card-val"><strong>秩宇股份有限公司</strong><br>營運長（COO）· 管理 13 人以上</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">聯絡方式</div>
+        <div class="info-card-val">
+          📱 Line：<strong>tank571</strong><br>
+          ✉️ <strong>tank.liao820211@gmail.com</strong>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">學歷</div>
+        <div class="info-card-val">
+          <strong>淡江大學</strong> 資訊工程 · 2012–2016<br>
+          基隆高中 普通科 · 2008–2011
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">語言</div>
+        <div class="info-card-val">
+          中文（精通）· 英文（中等）· 台語（中等）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 工作經歷 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>工作經歷</span></div>
+    <div>
+      <div class="exp-item">
+        <div class="exp-period">2023/4—現在</div>
+        <div>
+          <div class="exp-company">秩宇股份有限公司</div>
+          <div class="exp-title">營運長（COO）</div>
+          <div class="exp-desc">導入利潤率制度、業務獎金制度，建立新品牌自有品牌產品線。2024 年 YoY 平均 +120%，2025 年全年 +12%。管理 13 人以上團隊。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2023/9—2024/12</div>
+        <div>
+          <div class="exp-company">個人事業</div>
+          <div class="exp-title">台灣彩券行（副業）</div>
+          <div class="exp-desc">獨立經營實體彩券行 15 個月，建立對線下管銷成本、現金流的第一手認識。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2021—2023</div>
+        <div>
+          <div class="exp-company">個人創業</div>
+          <div class="exp-title">跨境電商全職創業</div>
+          <div class="exp-desc">蝦皮汽車精品店 25 個月累計 NT$780 萬；美國投影機品牌 13 條產品線操盤，2023 Q1-Q3 USD $94.8 萬，YoY +20.9%；協助 Twitch 建置五國 Amazon 站點。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2018/5—2021/10</div>
+        <div>
+          <div class="exp-company">視宇 / 秩宇股份有限公司</div>
+          <div class="exp-title">業務總監 / Top Sales</div>
+          <div class="exp-desc">電話開發、展場開發、招商講師（Amazon / eBay 官方邀請）、IEAT 跨境電商諮詢顧問、致理科大電商業師。簽約超過 30 間廠商，個人年業績 700 萬以上。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2017/10—2018/5</div>
+        <div>
+          <div class="exp-company">奇鋐科技股份有限公司</div>
+          <div class="exp-title">國內業務</div>
+          <div class="exp-desc">維繫 ODM 廠關係、協助送樣測試、處理客訴、追蹤 NPI 各階段進度。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2015/11—2016/7</div>
+        <div>
+          <div class="exp-company">嘉葳實業有限公司</div>
+          <div class="exp-title">行銷企劃</div>
+          <div class="exp-desc">官網維護與流量分析、Facebook 廣告投放、eBay 美國站經營、活動策劃與文案撰寫。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2015/2—2015/9</div>
+        <div>
+          <div class="exp-company">和碩股份有限公司</div>
+          <div class="exp-title">助理工程師</div>
+          <div class="exp-desc">NB、平板軟體相容性測試、Bug 報表製作。</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2012/11—2014/11</div>
+        <div>
+          <div class="exp-company">華碩電腦股份有限公司</div>
+          <div class="exp-title">行銷助理管理員</div>
+          <div class="exp-desc">管理評測機台、協助記者會與資訊展前後置作業、媒體曝光資訊整理。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 技能 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>技能專長</span></div>
+    <div class="skill-cats">
+      <div>
+        <div class="skill-cat-label">跨境電商平台</div>
+        <div class="skill-tags">
+          <span class="skill-tag" style="color:#2563eb;border-color:#bfdbfe;background:#eff6ff;">Amazon</span>
+          <span class="skill-tag" style="color:#d97706;border-color:#fde68a;background:#fffbeb;">eBay</span>
+          <span class="skill-tag" style="color:#db2777;border-color:#fbcfe8;background:#fdf2f8;">蝦皮</span>
+          <span class="skill-tag" style="color:#059669;border-color:#a7f3d0;background:#ecfdf5;">TikTok Shop</span>
+          <span class="skill-tag" style="color:#7c3aed;border-color:#ddd6fe;background:#f5f3ff;">Etsy</span>
+          <span class="skill-tag" style="color:#0891b2;border-color:#a5f3fc;background:#ecfeff;">MOMO / PChome</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">AI 工具</div>
+        <div class="skill-tags">
+          <span class="skill-tag" style="color:#7c3aed;border-color:#c4b5fd;background:#f5f3ff;">Claude</span>
+          <span class="skill-tag" style="color:#7c3aed;border-color:#c4b5fd;background:#f5f3ff;">Manus</span>
+          <span class="skill-tag" style="color:#7c3aed;border-color:#c4b5fd;background:#f5f3ff;">Gemini</span>
+          <span class="skill-tag" style="color:#7c3aed;border-color:#c4b5fd;background:#f5f3ff;">Python</span>
+          <span class="skill-tag" style="color:#7c3aed;border-color:#c4b5fd;background:#f5f3ff;">GitHub</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">行銷 / 分析</div>
+        <div class="skill-tags">
+          <span class="skill-tag" style="color:#b45309;border-color:#fcd34d;background:#fffbeb;">Google Analytics</span>
+          <span class="skill-tag" style="color:#b45309;border-color:#fcd34d;background:#fffbeb;">Google Ads</span>
+          <span class="skill-tag" style="color:#b45309;border-color:#fcd34d;background:#fffbeb;">Amazon PPC</span>
+          <span class="skill-tag" style="color:#b45309;border-color:#fcd34d;background:#fffbeb;">Facebook Ads</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">設計 / 工具</div>
+        <div class="skill-tags">
+          <span class="skill-tag" style="color:#555;border-color:#ddd;background:#f5f5f2;">Photoshop</span>
+          <span class="skill-tag" style="color:#555;border-color:#ddd;background:#f5f5f2;">Illustrator</span>
+          <span class="skill-tag" style="color:#555;border-color:#ddd;background:#f5f5f2;">Excel</span>
+          <span class="skill-tag" style="color:#555;border-color:#ddd;background:#f5f5f2;">PowerPoint</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 證照 -->
+  <div class="section-block reveal">
+    <div class="section-block-label"><span>證照</span></div>
+    <div class="cert-grid">
+      <div class="cert-item">Google Analytics 認證</div>
+      <div class="cert-item">Google Ads 購物廣告認證</div>
+      <div class="cert-item">Google Ads 行動廣告認證</div>
+      <div class="cert-item">Google Ads 搜尋聯播網認證</div>
+      <div class="cert-item">Microsoft Office Specialist (MOS)</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="index.html" class="page-nav-btn">← 回到故事首頁</a>
+  <a href="contact.html" class="page-nav-btn">聯絡我 →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
