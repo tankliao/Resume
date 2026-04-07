@@ -3,720 +3,367 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>廖哲志 Tank Liao — 電商創業者 · 營運長</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<title>廖哲志 Tank Liao</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#2563eb,#db2777,#d97706);z-index:999;}
+.snav{position:fixed;top:0;left:0;right:0;z-index:300;padding:16px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(247,248,250,0.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
+.snav a.logo{font-size:17px;font-weight:700;color:#111;text-decoration:none;}
+.snav a.logo span{color:#2563eb;}
+.snav-links{display:flex;gap:28px;}
+.snav-links a{font-size:14px;font-weight:500;color:#555;text-decoration:none;transition:color .2s;}
+.snav-links a:hover{color:#111;}
 
-body {
-  background: #F8F9FA;
-  font-family: 'Noto Sans TC', sans-serif;
-  overflow-x: hidden;
-}
+/* BIG BG */
+.bg{position:fixed;inset:0;z-index:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);background:#F7F8FA;pointer-events:none;}
+.bc{overflow:hidden;display:flex;align-items:center;justify-content:center;opacity:0.03;filter:grayscale(100%);transition:opacity .9s ease,filter .9s ease;}
+.bc.lit{opacity:0.5;filter:grayscale(0%);}
+.bc img{width:100%;height:100%;object-fit:contain;transform:scale(1.3);}
+.bc-fb{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transform:scale(1.2);}
+.bc-fb .t{font-size:clamp(60px,9vw,130px);font-weight:900;letter-spacing:-0.02em;line-height:1;}
+.bc-fb .s{font-size:clamp(14px,1.5vw,20px);font-weight:700;letter-spacing:.1em;color:#555;}
 
-/* PROGRESS BAR */
-.progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: linear-gradient(to right, #2563eb, #db2777, #d97706);
-  z-index: 999;
-  width: 0%;
-  transition: width 0.1s;
-}
-
-/* NAV */
-.site-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  padding: 16px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(248,249,250,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-}
-.nav-logo {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #111;
-  text-decoration: none;
-}
-.nav-logo span { color: #2563eb; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: #555;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: #111; }
-
-/* BG FIXED LAYER */
-.bg-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  background: #F8F9FA;
-}
-.bg-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  opacity: 0.03;
-  filter: grayscale(100%);
-  transition: opacity 0.8s ease, filter 0.8s ease;
-}
-.bg-cell.lit {
-  opacity: 0.5;
-  filter: grayscale(0%);
-}
-.bg-cell img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-}
-.bg-cell-txt {
-  font-size: 14px;
-  font-weight: 700;
-  color: #333;
-  letter-spacing: 0.05em;
-}
-.bg-placeholder {
-  width: 120px; height: 120px;
-  border-radius: 16px;
-  background: #e8e8e4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-}
-
-/* FOREGROUND */
-.fg { position: relative; z-index: 1; }
+/* FG */
+.fg{position:relative;z-index:1;}
 
 /* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 100px 8% 80px;
-  gap: 40px;
-}
-.hero-left { flex: 1; max-width: 620px; }
-.hero-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.hero-name-zh {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: clamp(64px, 9vw, 110px);
-  font-weight: 700;
-  color: #111;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-.hero-name-en {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 400;
-  color: #555;
-  margin-bottom: 16px;
-}
-.hero-story {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(20px, 2.8vw, 32px);
-  font-weight: 600;
-  color: #bbb;
-  margin-bottom: 28px;
-  letter-spacing: 0.04em;
-}
-.hero-quote {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: #666;
-  border-left: 3px solid #e2b96b;
-  padding-left: 16px;
-  line-height: 2;
-  margin-bottom: 40px;
-  max-width: 420px;
-}
-.scroll-hint {
-  font-size: 13px;
-  color: #999;
-  letter-spacing: 0.15em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-.scroll-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, #999, transparent);
-  animation: scrollBob 2s ease-in-out infinite;
-}
-@keyframes scrollBob {
-  0%,100% { opacity:0.4; transform:scaleY(1); }
-  50% { opacity:1; transform:scaleY(1.3); }
-}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 8% 80px;gap:60px;}
+.hl{}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#888;margin-bottom:24px;}
+.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(4rem,10vw,8rem);font-weight:900;color:#0d0d0d;letter-spacing:.05em;line-height:1;margin-bottom:10px;}
+.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2rem,5vw,4rem);font-weight:400;color:#444;margin-bottom:18px;line-height:1.1;}
+.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:600;color:#ccc;letter-spacing:.06em;margin-bottom:30px;}
+.quote{font-family:'Noto Serif TC',serif;font-size:clamp(14px,1.4vw,17px);font-style:italic;color:#666;border-left:4px solid #e2b96b;padding:4px 0 4px 18px;line-height:2;margin-bottom:40px;max-width:460px;}
+.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:13px;color:#aaa;letter-spacing:.12em;}
+.sline{width:1px;height:48px;background:linear-gradient(to bottom,#aaa,transparent);animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{opacity:.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.3);}}
 
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex-shrink: 0;
-}
-.stat-card {
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 14px;
-  padding: 18px 26px;
-  text-align: center;
-  min-width: 140px;
-}
-.stat-val { font-size: 32px; font-weight: 900; line-height: 1; margin-bottom: 5px; }
-.stat-lbl { font-size: 12px; color: #666; font-weight: 500; }
+.hr{display:flex;flex-direction:column;gap:18px;}
+.sc{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:24px 32px;box-shadow:0 4px 28px rgba(0,0,0,0.08);display:flex;align-items:center;gap:22px;transition:transform .2s,box-shadow .2s;}
+.sc:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,0.12);}
+.sv{font-size:clamp(32px,4vw,50px);font-weight:900;line-height:1;min-width:130px;}
+.sl{font-size:15px;color:#555;font-weight:500;line-height:1.4;}
 
-/* STORY SECTIONS */
-.story-sec {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 80px 8%;
-}
-.story-sec:nth-child(odd) { justify-content: flex-end; }
-.story-sec:nth-child(even) { justify-content: flex-start; }
+/* STORY */
+.ss{min-height:100vh;display:flex;align-items:center;padding:80px 8%;}
+.ss:nth-child(odd){justify-content:flex-end;}
+.ss:nth-child(even){justify-content:flex-start;}
+.scard{background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.09);border-radius:24px;padding:48px 52px;max-width:520px;width:100%;box-shadow:0 12px 52px rgba(0,0,0,0.1);opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease;}
+.scard.visible{opacity:1;transform:translateY(0);}
+.stag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;padding:5px 16px;border-radius:100px;margin-bottom:18px;}
+.stit{font-family:'Noto Serif TC',serif;font-size:clamp(22px,2.5vw,30px);font-weight:600;color:#111;margin-bottom:14px;line-height:1.3;}
+.sdesc{font-size:15px;color:#444;line-height:1.9;margin-bottom:22px;}
+.snums{display:flex;gap:28px;padding:18px 0;border-top:1px solid rgba(0,0,0,0.07);border-bottom:1px solid rgba(0,0,0,0.07);margin-bottom:24px;}
+.snum strong{font-size:20px;font-weight:900;color:#111;display:block;margin-bottom:4px;}
+.snum span{font-size:12px;color:#888;}
+.sbtn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;color:#fff;font-size:14px;font-weight:700;border-radius:12px;text-decoration:none;transition:opacity .2s,transform .2s;}
+.sbtn:hover{opacity:.88;transform:translateY(-2px);}
+.divider{text-align:center;padding:80px 20px 20px;font-size:13px;color:#aaa;letter-spacing:.18em;}
 
-.story-card {
-  background: rgba(255,255,255,0.96);
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 20px;
-  padding: 40px 44px;
-  max-width: 480px;
-  width: 100%;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.07);
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-.story-card.visible { opacity: 1; transform: translateY(0); }
+/* TIMELINE */
+.tls{padding:40px 60px 120px;max-width:1100px;margin:0 auto;}
+.tlh{text-align:center;margin-bottom:56px;}
+.tlh h2{font-family:'Noto Sans TC',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.02em;color:#111;}
+.tlh p{font-size:16px;color:#555;margin-top:10px;}
+.chs{display:flex;flex-direction:column;}
+.ch{position:relative;border-left:1px solid rgba(0,0,0,0.1);margin-left:28px;padding-left:36px;padding-bottom:4px;}
+.ch:last-child{border-left-color:transparent;}
+.ch::before{content:'';position:absolute;left:-6px;top:30px;width:11px;height:11px;border-radius:50%;background:var(--dc);box-shadow:0 0 0 3px #F7F8FA,0 0 0 5px var(--dc);z-index:1;}
+.ch.open::before{box-shadow:0 0 0 3px #F7F8FA,0 0 12px var(--dc),0 0 0 5px var(--dc);}
+.chcard{background:#fff;border:1px solid rgba(0,0,0,0.09);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s;}
+.chcard:hover{border-color:var(--dc);}
+.ch.open .chcard{border-color:var(--dc);box-shadow:0 0 24px -8px var(--dc);}
+.ctop{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:20px 24px;cursor:pointer;user-select:none;}
+.cyr{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--dc);background:color-mix(in srgb,var(--dc) 12%,transparent);padding:5px 13px;border-radius:100px;white-space:nowrap;flex-shrink:0;}
+.cpunch{font-size:clamp(14px,1.6vw,17px);font-weight:700;line-height:1.4;color:#111;}
+.ctog{font-size:20px;color:var(--dc);flex-shrink:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+.ch.open .ctog{transform:rotate(45deg);}
+.exp{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1);}
+.ch.open .exp{max-height:400px;}
+.expin{border-top:1px solid rgba(0,0,0,0.07);padding:18px 24px 22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;}
+.exsum{font-size:15px;line-height:1.85;color:#333;}
+.exsum strong{color:#111;font-weight:700;}
+.exkpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.exkpi{font-size:12px;padding:4px 12px;border-radius:100px;background:color-mix(in srgb,var(--dc) 10%,transparent);color:var(--dc);font-weight:600;}
+.dlink{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--dc);color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .2s,transform .2s;}
+.dlink:hover{opacity:.88;transform:translateY(-2px);}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--dc);margin-left:7px;vertical-align:middle;animation:p 1.8s ease-in-out infinite;}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.2}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
 
-.story-tag {
-  display: inline-block;
-  font-size: 12px; font-weight: 700;
-  padding: 4px 14px; border-radius: 100px;
-  margin-bottom: 16px; letter-spacing: 0.06em;
-}
-.story-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 28px; font-weight: 600;
-  color: #111; margin-bottom: 14px; line-height: 1.25;
-}
-.story-desc {
-  font-size: 15px; color: #444;
-  line-height: 1.9; margin-bottom: 20px;
-}
-.story-nums {
-  display: flex; gap: 24px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(0,0,0,0.07);
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-  margin-bottom: 22px;
-}
-.story-num strong { font-size: 18px; font-weight: 900; color: #111; display: block; margin-bottom: 3px; }
-.story-num span { font-size: 12px; color: #888; }
-.story-btn {
-  display: inline-block; padding: 12px 24px;
-  color: #fff; font-size: 14px; font-weight: 700;
-  border-radius: 10px; text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.story-btn:hover { opacity: 0.88; transform: translateY(-2px); }
-
-/* DIVIDER */
-.to-timeline {
-  text-align: center;
-  padding: 60px 20px 20px;
-  font-size: 14px; color: #aaa;
-  letter-spacing: 0.15em;
-}
-
-/* TIMELINE SECTION */
-.timeline-section {
-  padding: 40px 24px 120px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.tl-header { text-align: center; margin-bottom: 56px; }
-.tl-header h2 {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 900; letter-spacing: -0.02em; color: #111;
-}
-.tl-header p { font-size: 16px; color: #555; font-weight: 400; margin-top: 10px; }
-
-.chapters { display: flex; flex-direction: column; gap: 0; }
-.chapter {
-  position: relative;
-  border-left: 1px solid rgba(0,0,0,0.1);
-  margin-left: 28px;
-  padding-left: 36px;
-  padding-bottom: 4px;
-}
-.chapter:last-child { border-left-color: transparent; }
-.chapter::before {
-  content: '';
-  position: absolute;
-  left: -6px; top: 30px;
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  background: var(--dot-color);
-  box-shadow: 0 0 0 3px #F8F9FA, 0 0 0 5px var(--dot-color);
-  z-index: 1;
-}
-.chapter.open::before {
-  box-shadow: 0 0 0 3px #F8F9FA, 0 0 12px var(--dot-color), 0 0 0 5px var(--dot-color);
-}
-
-.chapter-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.09);
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-.chapter-card:hover { border-color: var(--dot-color); }
-.chapter.open .chapter-card {
-  border-color: var(--dot-color);
-  box-shadow: 0 0 24px -8px var(--dot-color);
-}
-
-.card-top {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 14px; align-items: center;
-  padding: 20px 24px; cursor: pointer; user-select: none;
-}
-.card-year {
-  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
-  color: var(--dot-color);
-  background: color-mix(in srgb, var(--dot-color) 12%, transparent);
-  padding: 5px 13px; border-radius: 100px; white-space: nowrap; flex-shrink: 0;
-}
-.card-punchline {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: clamp(14px, 1.8vw, 17px);
-  font-weight: 700; letter-spacing: -0.01em; line-height: 1.4; color: #111;
-}
-.card-toggle {
-  font-size: 20px; color: var(--dot-color); flex-shrink: 0;
-  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-}
-.chapter.open .card-toggle { transform: rotate(45deg); }
-
-.expand-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1); }
-.chapter.open .expand-panel { max-height: 400px; }
-
-.expand-inner {
-  border-top: 1px solid rgba(0,0,0,0.07);
-  padding: 18px 24px 22px;
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 18px; align-items: end;
-}
-.expand-summary { font-size: 15px; line-height: 1.85; color: #333; font-weight: 400; }
-.expand-summary strong { color: #111; font-weight: 700; }
-.expand-kpis { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.expand-kpi {
-  font-size: 12px; padding: 4px 12px; border-radius: 100px;
-  background: color-mix(in srgb, var(--dot-color) 10%, transparent);
-  color: var(--dot-color); font-weight: 600;
-}
-.detail-link {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 11px 20px;
-  background: var(--dot-color); color: #fff;
-  font-size: 13px; font-weight: 700;
-  border-radius: 8px; text-decoration: none; white-space: nowrap; flex-shrink: 0;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.detail-link:hover { opacity: 0.88; transform: translateY(-2px); }
-
-.present-pulse {
-  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--dot-color); margin-left: 7px; vertical-align: middle;
-  animation: pulse 1.8s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
-
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* RWD */
-@media (max-width: 768px) {
-  .site-nav { padding: 14px 20px; }
-  .nav-links { display: none; }
-  .hero { flex-direction: column; padding: 80px 20px 60px; }
-  .hero-right { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .stat-card { min-width: 120px; }
-  .story-sec { padding: 60px 20px; justify-content: center !important; }
-  .story-card { max-width: 100%; padding: 28px 24px; }
-  .bg-cell img { width: 70px; height: 70px; }
-  .bg-placeholder { width: 70px; height: 70px; font-size: 30px; }
-  .card-top { grid-template-columns: 1fr auto; }
-  .card-year { display: none; }
-  .expand-inner { grid-template-columns: 1fr; }
-  .detail-link { width: 100%; justify-content: center; }
-  .timeline-section { padding: 20px 16px 80px; }
+@media(max-width:900px){
+  .snav{padding:14px 20px;}.snav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
+  .hr{flex-direction:row;flex-wrap:wrap;}
+  .sc{flex:1;min-width:140px;padding:16px 20px;}
+  .sv{font-size:clamp(24px,5vw,36px);min-width:auto;}
+  .ss{padding:60px 6%;justify-content:center !important;}
+  .scard{max-width:100%;padding:28px 24px;}
+  .tls{padding:20px 20px 80px;}
+  .ctop{grid-template-columns:1fr auto;}.cyr{display:none;}
+  .expin{grid-template-columns:1fr;}.dlink{width:100%;justify-content:center;}
 }
 </style>
 </head>
 <body>
+<div id="pb"></div>
 
-<div class="progress-bar" id="progressBar"></div>
-
-<!-- FIXED BG -->
-<div class="bg-layer" id="bgLayer">
-  <div class="bg-cell" id="bg0">
-    <img src="images/logo-siyu.png" alt="秩宇" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="bg-placeholder" style="display:none;font-size:36px;font-weight:900;color:#2563eb;">秩</div>
-    <div class="bg-cell-txt">秩宇 Wiser</div>
+<!-- BIG BG GRID -->
+<div class="bg" id="bg">
+  <div class="bc" id="bc0">
+    <img src="images/logo-siyu.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#2563eb>秩宇</div><div class=s>WISER</div></div>'">
   </div>
-  <div class="bg-cell" id="bg1">
-    <img src="images/logo-ebay.png" alt="eBay" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="bg-placeholder" style="display:none;font-weight:900;color:#e53238;font-size:22px;">eBay</div>
-    <div class="bg-cell-txt">eBay</div>
+  <div class="bc" id="bc1">
+    <img src="images/logo-ebay.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#e53238>eBay</div></div>'">
   </div>
-  <div class="bg-cell" id="bg2">
-    <img src="images/logo-amazon.png" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="bg-placeholder" style="display:none;font-weight:900;color:#ff9900;font-size:18px;">amazon</div>
-    <div class="bg-cell-txt">Amazon</div>
+  <div class="bc" id="bc2">
+    <img src="images/logo-amazon.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#ff9900>amazon</div></div>'">
   </div>
-  <div class="bg-cell" id="bg3">
-    <img src="images/logo-twitch.png" alt="Twitch" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="bg-placeholder" style="display:none;font-weight:900;color:#9147ff;font-size:24px;">Tw</div>
-    <div class="bg-cell-txt">Twitch</div>
+  <div class="bc" id="bc3">
+    <img src="images/logo-twitch.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#9147ff>Twitch</div></div>'">
   </div>
-  <div class="bg-cell" id="bg4">
-    <div class="bg-placeholder">📽</div>
-    <div class="bg-cell-txt">投影幕品牌</div>
+  <div class="bc" id="bc4">
+    <div class="bc-fb">
+      <div class="t">📽</div>
+      <div class="s">投影幕品牌</div>
+    </div>
   </div>
-  <div class="bg-cell" id="bg5">
-    <div class="bg-placeholder">🎫</div>
-    <div class="bg-cell-txt">台灣彩券</div>
+  <div class="bc" id="bc5">
+    <div class="bc-fb">
+      <div class="t">🎫</div>
+      <div class="s">台灣彩券</div>
+    </div>
   </div>
 </div>
 
-<!-- FOREGROUND -->
+<!-- FG -->
 <div class="fg">
-
-  <!-- NAV -->
-  <nav class="site-nav">
-    <a href="index.html" class="nav-logo">廖<span>.</span>哲志</a>
-    <div class="nav-links">
+  <nav class="snav">
+    <a href="index.html" class="logo">廖<span>.</span>哲志</a>
+    <div class="snav-links">
       <a href="about.html">關於我</a>
       <a href="siyu.html">視宇正職</a>
       <a href="contact.html">聯絡</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="heroSection">
-    <div class="hero-left">
-      <div class="hero-label">電商創業者 · 營運長 COO · 2018 — 現在</div>
-      <div class="hero-name-zh">廖哲志</div>
-      <div class="hero-name-en">Tank Liao</div>
-      <div class="hero-story">的故事</div>
-      <div class="hero-quote">
-        "求知若飢，虛心若愚<br>
-        失敗不是問題，害怕失敗才是"
-      </div>
-      <div class="scroll-hint">
-        <span>往下滾動，展開每一年</span>
-        <div class="scroll-line"></div>
-      </div>
+  <section class="hero" id="hero">
+    <div class="hl">
+      <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
+      <div class="name-zh">廖哲志</div>
+      <div class="name-en">Tank Liao</div>
+      <div class="subtitle">的故事</div>
+      <div class="quote">"求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"</div>
+      <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
     </div>
-    <div class="hero-right">
-      <div class="stat-card"><div class="stat-val" style="color:#2563eb;">10+</div><div class="stat-lbl">年工作資歷</div></div>
-      <div class="stat-card"><div class="stat-val" style="color:#059669;">200+</div><div class="stat-lbl">廠商電商輔導</div></div>
-      <div class="stat-card"><div class="stat-val" style="color:#db2777;">4.1x</div><div class="stat-lbl">公司業績成長</div></div>
-      <div class="stat-card"><div class="stat-val" style="color:#d97706;font-size:22px;">NT$780萬</div><div class="stat-lbl">蝦皮累積業績</div></div>
+    <div class="hr">
+      <div class="sc"><div class="sv" style="color:#2563eb">10+</div><div class="sl">年工作資歷</div></div>
+      <div class="sc"><div class="sv" style="color:#059669">200+</div><div class="sl">廠商電商輔導</div></div>
+      <div class="sc"><div class="sv" style="color:#db2777">4.1x</div><div class="sl">公司業績成長</div></div>
+      <div class="sc"><div class="sv" style="color:#d97706;font-size:clamp(22px,3vw,36px)">NT$780萬</div><div class="sl">蝦皮累積業績</div></div>
     </div>
   </section>
 
-  <!-- STORY SECTIONS -->
-  <section class="story-sec" data-bg="0">
-    <div class="story-card">
-      <div class="story-tag" style="background:#dbeafe;color:#1e40af;">2018 — 現在</div>
-      <div class="story-title">視宇 · 秩宇</div>
-      <div class="story-desc">草創業務到營運長，帶領公司業績從 NT$840 萬成長至 NT$3,471 萬。7 年，4.1 倍的成長。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>4.1x</strong><span>業績成長</span></div>
-        <div class="story-num"><strong>200+</strong><span>輔導廠商</span></div>
-        <div class="story-num"><strong>13人+</strong><span>管理團隊</span></div>
+  <section class="ss" data-bg="0">
+    <div class="scard">
+      <div class="stag" style="background:#dbeafe;color:#1e40af">2018 — 現在</div>
+      <div class="stit">視宇 · 秩宇</div>
+      <div class="sdesc">草創業務到營運長，帶領公司業績從 NT$840 萬成長至 NT$3,471 萬。7 年，4.1 倍。</div>
+      <div class="snums">
+        <div class="snum"><strong>4.1x</strong><span>業績成長</span></div>
+        <div class="snum"><strong>200+</strong><span>輔導廠商</span></div>
+        <div class="snum"><strong>13人+</strong><span>管理團隊</span></div>
       </div>
-      <a href="siyu.html" class="story-btn" style="background:#2563eb;">查看完整故事 →</a>
+      <a href="siyu.html" class="sbtn" style="background:#2563eb">查看完整故事 →</a>
     </div>
   </section>
 
-  <section class="story-sec" data-bg="1">
-    <div class="story-card">
-      <div class="story-tag" style="background:#fef3c7;color:#92400e;">2018 — 2019</div>
-      <div class="story-title">eBay 個人賣家</div>
-      <div class="story-desc">自費當賣家，4 個月創造 USD $65,911，利潤率 50%。用真實市場學習，讓業務說話更有力。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>$65,911</strong><span>USD 4個月</span></div>
-        <div class="story-num"><strong>50%</strong><span>利潤率</span></div>
+  <section class="ss" data-bg="1">
+    <div class="scard">
+      <div class="stag" style="background:#fef3c7;color:#92400e">2018 — 2019</div>
+      <div class="stit">eBay 個人賣家</div>
+      <div class="sdesc">自費當賣家，4 個月創造 USD $65,911，利潤率 50%。用真實市場學習，讓業務說話更有力。</div>
+      <div class="snums">
+        <div class="snum"><strong>$65,911</strong><span>USD 4個月</span></div>
+        <div class="snum"><strong>50%</strong><span>利潤率</span></div>
       </div>
-      <a href="2019.html" class="story-btn" style="background:#d97706;">查看完整故事 →</a>
+      <a href="2019.html" class="sbtn" style="background:#d97706">查看完整故事 →</a>
     </div>
   </section>
 
-  <section class="story-sec" data-bg="2">
-    <div class="story-card">
-      <div class="story-tag" style="background:#ecfdf5;color:#065f46;">2021 — 2023</div>
-      <div class="story-title">Amazon · 蝦皮</div>
-      <div class="story-desc">全職創業，蝦皮 25 個月累計 NT$780 萬。同時操盤多個海外市場，獨立完成全流程。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>NT$780萬</strong><span>蝦皮累計</span></div>
-        <div class="story-num"><strong>25個月</strong><span>完整紀錄</span></div>
+  <section class="ss" data-bg="2">
+    <div class="scard">
+      <div class="stag" style="background:#ecfdf5;color:#065f46">2021 — 2023</div>
+      <div class="stit">Amazon · 蝦皮</div>
+      <div class="sdesc">全職創業，蝦皮 25 個月累計 NT$780 萬。同時操盤多個海外市場，獨立完成全流程。</div>
+      <div class="snums">
+        <div class="snum"><strong>NT$780萬</strong><span>蝦皮累計</span></div>
+        <div class="snum"><strong>25個月</strong><span>完整紀錄</span></div>
       </div>
-      <a href="shopee.html" class="story-btn" style="background:#059669;">查看完整故事 →</a>
+      <a href="shopee.html" class="sbtn" style="background:#059669">查看完整故事 →</a>
     </div>
   </section>
 
-  <section class="story-sec" data-bg="3">
-    <div class="story-card">
-      <div class="story-tag" style="background:#f3e8ff;color:#6b21a8;">2020</div>
-      <div class="story-title">Twitch · 五國站點</div>
-      <div class="story-desc">協助建置美、英、德、澳、日五個 Amazon 站點。TwitchCon 當天 24hr On-Call，零中斷。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>5國</strong><span>Amazon 站點</span></div>
-        <div class="story-num"><strong>千萬+</strong><span>單月 NTD</span></div>
+  <section class="ss" data-bg="3">
+    <div class="scard">
+      <div class="stag" style="background:#f3e8ff;color:#6b21a8">2020</div>
+      <div class="stit">Twitch · 五國站點</div>
+      <div class="sdesc">協助建置美、英、德、澳、日五個 Amazon 站點。TwitchCon 當天 24hr On-Call，零中斷。</div>
+      <div class="snums">
+        <div class="snum"><strong>5國</strong><span>Amazon 站點</span></div>
+        <div class="snum"><strong>千萬+</strong><span>單月 NTD</span></div>
       </div>
-      <a href="2020.html" class="story-btn" style="background:#7c3aed;">查看完整故事 →</a>
+      <a href="2020.html" class="sbtn" style="background:#7c3aed">查看完整故事 →</a>
     </div>
   </section>
 
-  <section class="story-sec" data-bg="4">
-    <div class="story-card">
-      <div class="story-tag" style="background:#fce7f3;color:#9d174d;">2022 — 2023</div>
-      <div class="story-title">美國投影機品牌</div>
-      <div class="story-desc">13 條產品線，2023 Q1-Q3 業績 USD $94.8 萬。淡季逆勢 YoY +80%，全年估計破百萬美元。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>$94.8萬</strong><span>USD Q1-Q3</span></div>
-        <div class="story-num"><strong>+20.9%</strong><span>YoY</span></div>
+  <section class="ss" data-bg="4">
+    <div class="scard">
+      <div class="stag" style="background:#fce7f3;color:#9d174d">2022 — 2023</div>
+      <div class="stit">美國投影機品牌</div>
+      <div class="sdesc">13 條產品線，2023 Q1-Q3 業績 USD $94.8 萬。淡季逆勢 YoY +80%，全年估計破百萬美元。</div>
+      <div class="snums">
+        <div class="snum"><strong>$94.8萬</strong><span>USD Q1-Q3</span></div>
+        <div class="snum"><strong>+20.9%</strong><span>YoY</span></div>
       </div>
-      <a href="us-client.html" class="story-btn" style="background:#db2777;">查看完整故事 →</a>
+      <a href="us-client.html" class="sbtn" style="background:#db2777">查看完整故事 →</a>
     </div>
   </section>
 
-  <section class="story-sec" data-bg="5">
-    <div class="story-card">
-      <div class="story-tag" style="background:#fef9c3;color:#713f12;">2023 — 2024</div>
-      <div class="story-title">台灣彩券行</div>
-      <div class="story-desc">第一次有實體店面。自己貼地板、換燈具，15 個月學會線下損益結構與現金流管理。</div>
-      <div class="story-nums">
-        <div class="story-num"><strong>15個月</strong><span>實體經營</span></div>
-        <div class="story-num"><strong>自己裝修</strong><span>地板 · 燈具</span></div>
+  <section class="ss" data-bg="5">
+    <div class="scard">
+      <div class="stag" style="background:#fef9c3;color:#713f12">2023 — 2024</div>
+      <div class="stit">台灣彩券行</div>
+      <div class="sdesc">第一次有實體店面。自己貼地板、換燈具，15 個月學會線下損益結構與現金流管理。</div>
+      <div class="snums">
+        <div class="snum"><strong>15個月</strong><span>實體經營</span></div>
+        <div class="snum"><strong>自己裝修</strong><span>地板 · 燈具</span></div>
       </div>
-      <a href="lottery.html" class="story-btn" style="background:#b45309;">查看完整故事 →</a>
+      <a href="lottery.html" class="sbtn" style="background:#b45309">查看完整故事 →</a>
     </div>
   </section>
 
-  <div class="to-timeline">↓ 查看完整章節目錄</div>
+  <div class="divider">↓ 查看完整章節目錄</div>
 
-  <!-- TIMELINE -->
-  <div class="timeline-section">
-    <div class="tl-header reveal">
-      <h2>章節目錄</h2>
-      <p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p>
-    </div>
-    <div class="chapters">
+  <div class="tls">
+    <div class="tlh reveal"><h2>章節目錄</h2><p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p></div>
+    <div class="chs">
 
-      <div class="chapter reveal" style="--dot-color:#e2b96b">
-        <div class="chapter-card" style="background:linear-gradient(135deg,#fffbeb,#fff8f0);border:1.5px solid #e2b96b;">
-          <div class="card-top" style="cursor:default;">
-            <div class="card-year" style="color:#92400e;background:#fef3c7;">👤 廖哲志 · Tank Liao</div>
-            <div class="card-punchline" style="color:#78350f;">"求知若飢，虛心若愚——失敗不是問題，害怕失敗才是"</div>
+      <div class="ch reveal" style="--dc:#e2b96b">
+        <div class="chcard" style="background:linear-gradient(135deg,#fffbeb,#fff8f0);border:1.5px solid #e2b96b;">
+          <div class="ctop" style="cursor:default;">
+            <div class="cyr" style="color:#92400e;background:#fef3c7;">👤 廖哲志 · Tank Liao</div>
+            <div class="cpunch" style="color:#78350f;">"求知若飢，虛心若愚——失敗不是問題，害怕失敗才是"</div>
             <a href="about.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#e2b96b;color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;">關於我 →</a>
           </div>
         </div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#2563eb">
-        <div class="chapter-card" style="border-left:3px solid #2563eb;">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year" style="color:#2563eb;background:#dbeafe;">🏢 視宇正職 · 2018—現在</div>
-            <div class="card-punchline">草創業務 → 業務主管 → 營運長。公司業績從 840 萬成長到 3,471 萬，4.1 倍。</div>
-            <div class="card-toggle" style="color:#2563eb;">+</div>
+      <div class="ch reveal" style="--dc:#2563eb">
+        <div class="chcard" style="border-left:3px solid #2563eb;">
+          <div class="ctop" onclick="toggle(this)">
+            <div class="cyr">🏢 視宇正職 · 2018—現在</div>
+            <div class="cpunch">草創業務 → 業務主管 → 營運長。公司業績 4.1 倍成長。</div>
+            <div class="ctog">+</div>
           </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">2018年以業務身分加入草創期視宇，2021年離開探索，2023年回歸升任<strong>業務主管</strong>，2024年升任<strong>營運長（COO）</strong>。回歸後公司 YoY <strong>+86.5%</strong>。</div>
-                <div class="expand-kpis">
-                  <span class="expand-kpi" style="color:#2563eb;background:#dbeafe;">NT$3,471萬 2025年</span>
-                  <span class="expand-kpi" style="color:#2563eb;background:#dbeafe;">+86.5% 回歸當年</span>
-                  <span class="expand-kpi" style="color:#2563eb;background:#dbeafe;">營運長 COO</span>
-                </div>
-              </div>
-              <a href="siyu.html" class="detail-link" style="background:#2563eb;">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
+          <div class="exp"><div class="expin">
+            <div><div class="exsum">2018年加入視宇，2023年回歸升任<strong>業務主管</strong>，2024年升任<strong>營運長（COO）</strong>。回歸當年 YoY <strong>+86.5%</strong>。</div>
+            <div class="exkpis"><span class="exkpi">NT$3,471萬 2025</span><span class="exkpi">+86.5% 回歸當年</span><span class="exkpi">COO</span></div></div>
+            <a href="siyu.html" class="dlink">查看完整故事 →</a>
+          </div></div>
         </div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#7c3aed">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2018</div>
-            <div class="card-punchline">沒人教、沒資源，我就自己學、自己做——這是我業務生涯最強的一課。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">在視宇擔任業務期間，為了讓自己更有說服力，<strong>自費成為 Amazon + eBay 賣家</strong>——自己找供應商、建產品、搞定物流金流。</div>
-                <div class="expand-kpis"><span class="expand-kpi">Amazon 賣家</span><span class="expand-kpi">eBay 賣家</span><span class="expand-kpi">選品研究</span></div>
-              </div>
-              <a href="2018.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#7c3aed">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2018</div>
+          <div class="cpunch">沒人教、沒資源，我就自己學、自己做——這是我業務生涯最強的一課。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">自費成為 <strong>Amazon + eBay 賣家</strong>，用真實虧損和獲利逼自己搞懂每一個環節。</div>
+          <div class="exkpis"><span class="exkpi">Amazon</span><span class="exkpi">eBay</span><span class="exkpi">選品研究</span></div></div>
+          <a href="2018.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#2563eb">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2019</div>
-            <div class="card-punchline">4個月，eBay + Amazon 合計 USD $65,911，利潤率 50%。數字會說話。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">找到可複製的爆品邏輯，單月穩定在 <strong>USD $14,000–$18,720</strong>，所有數據截圖均有留存。</div>
-                <div class="expand-kpis"><span class="expand-kpi">$65,911 USD</span><span class="expand-kpi">利潤率 50%</span><span class="expand-kpi">截圖存證</span></div>
-              </div>
-              <a href="2019.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#2563eb">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2019</div>
+          <div class="cpunch">4個月，USD $65,911，利潤率 50%。數字會說話。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">單月穩定在 <strong>USD $14,000–$18,720</strong>，所有數據截圖均有留存。</div>
+          <div class="exkpis"><span class="exkpi">$65,911 USD</span><span class="exkpi">50% 利潤率</span></div></div>
+          <a href="2019.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#059669">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2020</div>
-            <div class="card-punchline">Twitch 供應商找上我——他們需要有人把貨賣好，讓出貨量繼續成長。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">協助 <strong>Twitch（Amazon 旗下）</strong> 建置美、英、德、澳、日五站。TwitchCon 24hr On-Call，12月破千萬 NTD。</div>
-                <div class="expand-kpis"><span class="expand-kpi">5國站點</span><span class="expand-kpi">24hr On-Call</span><span class="expand-kpi">千萬 NTD 單月</span></div>
-              </div>
-              <a href="2020.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#059669">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2020</div>
+          <div class="cpunch">Twitch 供應商找上我，協助五國站點建置，TwitchCon 24hr On-Call。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">建置美、英、德、澳、日五站，12月破 <strong>千萬 NTD</strong> 單月業績。</div>
+          <div class="exkpis"><span class="exkpi">5國站點</span><span class="exkpi">24hr On-Call</span><span class="exkpi">千萬 NTD</span></div></div>
+          <a href="2020.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#d97706">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2021—2023</div>
-            <div class="card-punchline">轉戰台灣蝦皮。25個月，累計 NT$780萬。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">獨立操盤蝦皮汽車精品店，單月高峰 <strong>NT$54.9萬</strong>，所有月份數據均有完整紀錄。</div>
-                <div class="expand-kpis"><span class="expand-kpi">NT$780萬 總計</span><span class="expand-kpi">單月高峰 54.9萬</span><span class="expand-kpi">25個月</span></div>
-              </div>
-              <a href="shopee.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#d97706">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2021—2023</div>
+          <div class="cpunch">轉戰台灣蝦皮，25個月累計 NT$780萬。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">單月高峰 <strong>NT$54.9萬</strong>，所有月份數據完整紀錄。</div>
+          <div class="exkpis"><span class="exkpi">NT$780萬 總計</span><span class="exkpi">高峰 54.9萬</span></div></div>
+          <a href="shopee.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#db2777">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2022—2023</div>
-            <div class="card-punchline">操盤美國投影機品牌 Amazon 全店，13 條產品線，總營業額破百萬美元，YoY +20.9%。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">2023 年 Q1–Q3 達 <strong>USD $94.8萬</strong>，全年估計突破百萬美元。2月、3月創下 <strong>80% YoY 彈跳</strong>。</div>
-                <div class="expand-kpis"><span class="expand-kpi">$94.8萬 USD Q1-Q3</span><span class="expand-kpi">+20.9% YoY</span><span class="expand-kpi">13條產品線</span></div>
-              </div>
-              <a href="us-client.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#db2777">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2022—2023</div>
+          <div class="cpunch">美國投影機品牌 13 條產品線，總營業額破百萬美元，YoY +20.9%。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">Q1-Q3 達 <strong>USD $94.8萬</strong>，淡季 2、3 月創 <strong>80% YoY 彈跳</strong>。</div>
+          <div class="exkpis"><span class="exkpi">$94.8萬 USD</span><span class="exkpi">+20.9% YoY</span></div></div>
+          <a href="us-client.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#b45309">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">2023—2024</div>
-            <div class="card-punchline">第一次有實體店面。彩券行讓我理解線下的成本結構。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">獨立經營<strong>台灣彩券行</strong> 15 個月，首次建立對租金、人力、現金流的第一手認識。</div>
-                <div class="expand-kpis"><span class="expand-kpi">實體管銷</span><span class="expand-kpi">損益平衡</span><span class="expand-kpi">現金流管理</span></div>
-              </div>
-              <a href="lottery.html" class="detail-link">查看完整故事 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#b45309">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2023—2024</div>
+          <div class="cpunch">第一次有實體店面，15 個月學會線下損益結構。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">獨立經營<strong>台灣彩券行</strong>，自己裝修，建立對管銷成本第一手認識。</div>
+          <div class="exkpis"><span class="exkpi">15個月</span><span class="exkpi">實體管銷</span></div></div>
+          <a href="lottery.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
       </div>
 
-      <div class="chapter reveal" style="--dot-color:#0891b2">
-        <div class="chapter-card">
-          <div class="card-top" onclick="toggleChapter(this)">
-            <div class="card-year">現在 <span class="present-pulse"></span></div>
-            <div class="card-punchline">下一章，還沒寫完。我在找能把這些能力放大的舞台。</div>
-            <div class="card-toggle">+</div>
-          </div>
-          <div class="expand-panel">
-            <div class="expand-inner">
-              <div>
-                <div class="expand-summary">6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。</div>
-                <div class="expand-kpis"><span class="expand-kpi">跨境電商策略</span><span class="expand-kpi">多平台營運</span><span class="expand-kpi">數據驅動決策</span></div>
-              </div>
-              <a href="contact.html" class="detail-link">聯絡我 <span>→</span></a>
-            </div>
-          </div>
-        </div>
+      <div class="ch reveal" style="--dc:#0891b2">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">現在 <span class="pulse"></span></div>
+          <div class="cpunch">下一章，還沒寫完。我在找能把這些能力放大的舞台。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。</div>
+          <div class="exkpis"><span class="exkpi">跨境電商策略</span><span class="exkpi">多平台營運</span></div></div>
+          <a href="contact.html" class="dlink">聯絡我 →</a>
+        </div></div></div>
       </div>
 
     </div>
@@ -724,47 +371,36 @@ body {
 </div>
 
 <script>
-// Progress bar
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+window.addEventListener('scroll',()=>{
+  document.getElementById('pb').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
 });
-
-// Scrollytelling: bg logos
-const bgCells = document.querySelectorAll('.bg-cell');
-const storySecs = document.querySelectorAll('.story-sec');
-
-const storyObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const idx = parseInt(e.target.dataset.bg);
-      bgCells.forEach((c, i) => c.classList.toggle('lit', i === idx));
-      e.target.querySelector('.story-card').classList.add('visible');
+const bcs=document.querySelectorAll('.bc');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=+e.target.dataset.bg;
+      bcs.forEach((c,j)=>c.classList.toggle('lit',j===i));
+      e.target.querySelector('.scard').classList.add('visible');
     }
   });
-}, { threshold: 0.5 });
-storySecs.forEach(s => storyObs.observe(s));
-
-// Hero: reset bg
-const heroObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) bgCells.forEach(c => c.classList.remove('lit'));
-  });
-}, { threshold: 0.3 });
-heroObs.observe(document.getElementById('heroSection'));
-
-// Timeline reveal
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// Chapter expand
-function toggleChapter(el) {
-  const ch = el.closest('.chapter');
-  const open = ch.classList.contains('open');
-  document.querySelectorAll('.chapter.open').forEach(c => c.classList.remove('open'));
-  if (!open) ch.classList.add('open');
+},{threshold:0.5});
+document.querySelectorAll('.ss').forEach(s=>obs.observe(s));
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)bcs.forEach(c=>c.classList.remove('lit'));});
+},{threshold:0.3}).observe(document.getElementById('hero'));
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1}).observe(document.querySelector('.tlh'));
+document.querySelectorAll('.ch.reveal').forEach(el=>{
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.1}).observe(el);
+});
+function toggle(el){
+  const ch=el.closest('.ch');
+  const open=ch.classList.contains('open');
+  document.querySelectorAll('.ch.open').forEach(c=>c.classList.remove('open'));
+  if(!open)ch.classList.add('open');
 }
 </script>
 </body>
