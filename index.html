@@ -50,7 +50,7 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 /* STORY */
 .ss{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 5%;gap:0;}
 .ss-yr{display:flex;align-items:center;justify-content:center;padding:40px;}
-.ss-yr-txt{font-family:'Noto Serif TC',serif;font-size:clamp(5rem,12vw,10rem);font-weight:600;color:#111;opacity:0.1;line-height:1;letter-spacing:-0.02em;text-align:center;user-select:none;}
+.ss-yr-txt{font-family:'Noto Serif TC',serif;font-size:clamp(5rem,12vw,10rem);font-weight:600;color:#111;opacity:0.35;line-height:1;letter-spacing:-0.02em;text-align:center;user-select:none;}
 .ss-card{display:flex;align-items:center;justify-content:center;padding:40px;}
 .ss.even .ss-yr{order:2;}
 .ss.even .ss-card{order:1;}
@@ -109,6 +109,15 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+.ss-shopee .ss-card{padding:20px 40px 20px 0;}
+.scard-shopee{width:100%;max-width:780px;padding:0;overflow:hidden;}
+.shopee-inner{display:grid;grid-template-columns:220px 1fr;min-height:420px;}
+.shopee-logo-col{background:linear-gradient(135deg,#fff4f0,#ffe8e0);display:flex;align-items:center;justify-content:center;padding:40px 24px;border-right:1px solid rgba(245,61,45,0.15);flex-shrink:0;}
+.shopee-logo-box{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;}
+.shopee-logo-box img{width:140px;height:140px;object-fit:contain;}
+.shopee-logo-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.shopee-content-col{padding:3rem 3rem;}
+
 @media(max-width:900px){
   .snav{padding:14px 20px;}.snav-links{display:none;}
   .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
@@ -119,6 +128,10 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
   .ss-yr{display:none;}
   .ss-card{padding:20px;}
   .ss.even .ss-card{order:0;}
+  .ss-shopee .ss-card{padding:0 !important;}
+  .shopee-inner{grid-template-columns:1fr;}
+  .shopee-logo-col{padding:32px;min-height:180px;}
+  .shopee-content-col{padding:1.75rem;}
   .scard{width:100%;min-width:0;padding:2rem 1.75rem;}
   .stit{font-size:1.8rem;}
   .sdesc{font-size:1rem;}
@@ -223,18 +236,33 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
     <div class="ss-yr"><div class="ss-yr-txt">2018<br>—<br>2019</div></div>
   </section>
 
-  <!-- s3: odd → yr left, card right | logos: 1(eBay)+2(Amazon) -->
-  <section class="ss" data-target-logos="1,2">
+  <!-- s3: 蝦皮特殊版型 — 左側年份浮水印 + 右側寬卡(內含蝦皮logo) -->
+  <section class="ss ss-shopee" data-target-logos="">
     <div class="ss-yr"><div class="ss-yr-txt">2021<br>—<br>2023</div></div>
-    <div class="ss-card"><div class="scard">
-      <div class="stag" style="background:#ecfdf5;color:#065f46">2021 — 2023</div>
-      <div class="stit">Amazon · 蝦皮</div>
-      <div class="sdesc">全職創業，蝦皮 25 個月累計 NT$780 萬。同時操盤多個海外市場，獨立完成全流程。</div>
-      <div class="snums">
-        <div class="snum"><strong>NT$780萬</strong><span>蝦皮累計</span></div>
-        <div class="snum"><strong>25個月</strong><span>完整紀錄</span></div>
+    <div class="ss-card ss-card-wide"><div class="scard scard-shopee">
+      <div class="shopee-inner">
+        <div class="shopee-logo-col">
+          <div class="shopee-logo-box">
+            <img src="images/logo-shopee.png" alt="蝦皮"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="shopee-logo-fallback" style="display:none;">
+              <div style="font-size:clamp(3rem,6vw,5.5rem);font-weight:900;color:#f53d2d;line-height:1;">蝦皮</div>
+              <div style="font-size:clamp(0.9rem,1.5vw,1.2rem);font-weight:700;color:#ff6633;letter-spacing:.1em;margin-top:8px;">Shopee</div>
+            </div>
+          </div>
+        </div>
+        <div class="shopee-content-col">
+          <div class="stag" style="background:#fff4f0;color:#c0392b">2021 — 2023</div>
+          <div class="stit">蝦皮創業</div>
+          <div class="sdesc">全職創業，25 個月累計 NT$780 萬。獨立操盤汽車精品店，從選品到出貨一手包辦。</div>
+          <div class="snums">
+            <div class="snum"><strong>NT$780萬</strong><span>蝦皮累計</span></div>
+            <div class="snum"><strong>25個月</strong><span>完整紀錄</span></div>
+            <div class="snum"><strong>NT$54.9萬</strong><span>單月高峰</span></div>
+          </div>
+          <a href="shopee.html" class="sbtn" style="background:#f53d2d">查看完整故事 →</a>
+        </div>
       </div>
-      <a href="shopee.html" class="sbtn" style="background:#059669">查看完整故事 →</a>
     </div></div>
   </section>
 
@@ -285,7 +313,7 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 
   <div class="divider">↓ 查看完整章節目錄</div>
 
-  <div class="tls">
+  <div class="tls" id="tlSection">
     <div class="tlh reveal"><h2>章節目錄</h2><p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p></div>
     <div class="chs">
 
@@ -410,7 +438,8 @@ const bcs=document.querySelectorAll('.bc');
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      const targets=(e.target.dataset.targetLogos||'').split(',').map(n=>+n.trim()).filter(n=>!isNaN(n));
+      const raw=(e.target.dataset.targetLogos||'').trim();
+      const targets=raw===''?[]:raw.split(',').map(n=>+n.trim()).filter(n=>n>=0&&!isNaN(n));
       bcs.forEach((c,j)=>c.classList.toggle('lit',targets.includes(j)));
       e.target.querySelector('.scard').classList.add('visible');
     }
@@ -420,6 +449,10 @@ document.querySelectorAll('.ss').forEach(s=>obs.observe(s));
 new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)bcs.forEach(c=>c.classList.remove('lit'));});
 },{threshold:0.3}).observe(document.getElementById('hero'));
+const tl=document.getElementById('tlSection');
+if(tl){new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)bcs.forEach(c=>c.classList.remove('lit'));});
+},{threshold:0.1}).observe(tl);}
 new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:0.1}).observe(document.querySelector('.tlh'));
