@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>廖哲志 Tank Liao</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#2563eb,#db2777,#d97706);z-index:999;}
+.snav{position:fixed;top:0;left:0;right:0;z-index:300;padding:16px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(247,248,250,0.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
+.snav a.logo{font-size:17px;font-weight:700;color:#111;text-decoration:none;}
+.snav a.logo span{color:#2563eb;}
+.snav-links{display:flex;gap:28px;}
+.snav-links a{font-size:14px;font-weight:500;color:#555;text-decoration:none;transition:color .2s;}
+.snav-links a:hover{color:#111;}
+
+/* BIG BG */
+.bg{position:fixed;inset:0;z-index:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);background:#F7F8FA;pointer-events:none;}
+.bc{overflow:hidden;display:flex;align-items:center;justify-content:center;opacity:0.03;filter:grayscale(100%);transition:opacity .9s ease,filter .9s ease;}
+.bc.lit{opacity:0.5;filter:grayscale(0%);}
+.bc img{width:100%;height:100%;object-fit:contain;transform:scale(1.3);}
+.bc-fb{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transform:scale(1.2);}
+.bc-fb .t{font-size:clamp(60px,9vw,130px);font-weight:900;letter-spacing:-0.02em;line-height:1;}
+.bc-fb .s{font-size:clamp(14px,1.5vw,20px);font-weight:700;letter-spacing:.1em;color:#555;}
+
+/* FG */
+.fg{position:relative;z-index:1;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 8% 80px;gap:60px;}
+.hl{}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#888;margin-bottom:24px;}
+.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(4rem,10vw,8rem);font-weight:900;color:#0d0d0d;letter-spacing:.05em;line-height:1;margin-bottom:10px;}
+.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2rem,5vw,4rem);font-weight:400;color:#444;margin-bottom:18px;line-height:1.1;}
+.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:600;color:#ccc;letter-spacing:.06em;margin-bottom:30px;}
+.quote{font-family:'Noto Serif TC',serif;font-size:clamp(14px,1.4vw,17px);font-style:italic;color:#666;border-left:4px solid #e2b96b;padding:4px 0 4px 18px;line-height:2;margin-bottom:40px;max-width:460px;}
+.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:13px;color:#aaa;letter-spacing:.12em;}
+.sline{width:1px;height:48px;background:linear-gradient(to bottom,#aaa,transparent);animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{opacity:.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.3);}}
+
+.hr{display:flex;flex-direction:column;gap:18px;}
+.sc{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:24px 32px;box-shadow:0 4px 28px rgba(0,0,0,0.08);display:flex;align-items:center;gap:22px;transition:transform .2s,box-shadow .2s;}
+.sc:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,0.12);}
+.sv{font-size:clamp(32px,4vw,50px);font-weight:900;line-height:1;min-width:130px;}
+.sl{font-size:15px;color:#555;font-weight:500;line-height:1.4;}
+
+/* STORY */
+.ss{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 5%;gap:0;}
+.ss-yr{display:flex;align-items:center;justify-content:center;padding:40px;}
+.ss-yr-txt{font-family:'Noto Serif TC',serif;font-size:clamp(5rem,12vw,10rem);font-weight:600;color:#111;opacity:0.35;line-height:1;letter-spacing:-0.02em;text-align:center;user-select:none;}
+.ss-card{display:flex;align-items:center;justify-content:center;padding:40px;}
+.ss.even .ss-yr{order:2;}
+.ss.even .ss-card{order:1;}
+.scard{
+  width:45vw;max-width:600px;min-width:320px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.55);
+  border-radius:28px;
+  padding:4rem;
+  box-shadow:0 20px 80px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.8);
+  opacity:0;transform:translateY(40px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.scard.visible{opacity:1;transform:translateY(0);}
+.stag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;padding:6px 18px;border-radius:100px;margin-bottom:22px;}
+.stit{font-family:'Noto Serif TC',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:600;color:#0d0d0d;margin-bottom:18px;line-height:1.2;}
+.sdesc{font-size:clamp(1rem,1.3vw,1.25rem);color:#333;line-height:1.85;margin-bottom:28px;}
+.snums{display:flex;gap:32px;padding:24px 0;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08);margin-bottom:28px;flex-wrap:wrap;}
+.snum strong{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:900;color:#0d0d0d;display:block;margin-bottom:5px;line-height:1;}
+.snum span{font-size:13px;color:#666;font-weight:500;}
+.sbtn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;color:#fff;font-size:16px;font-weight:700;border-radius:14px;text-decoration:none;transition:opacity .2s,transform .2s;letter-spacing:.02em;}
+.sbtn:hover{opacity:.88;transform:translateY(-3px);}
+.divider{text-align:center;padding:80px 20px 20px;font-size:13px;color:#aaa;letter-spacing:.18em;}
+
+/* TIMELINE */
+.tls{padding:40px 60px 120px;max-width:1100px;margin:0 auto;}
+.tlh{text-align:center;margin-bottom:56px;}
+.tlh h2{font-family:'Noto Sans TC',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.02em;color:#111;}
+.tlh p{font-size:16px;color:#555;margin-top:10px;}
+.chs{display:flex;flex-direction:column;}
+.ch{position:relative;border-left:1px solid rgba(0,0,0,0.1);margin-left:28px;padding-left:36px;padding-bottom:4px;}
+.ch:last-child{border-left-color:transparent;}
+.ch::before{content:'';position:absolute;left:-6px;top:30px;width:11px;height:11px;border-radius:50%;background:var(--dc);box-shadow:0 0 0 3px #F7F8FA,0 0 0 5px var(--dc);z-index:1;}
+.ch.open::before{box-shadow:0 0 0 3px #F7F8FA,0 0 12px var(--dc),0 0 0 5px var(--dc);}
+.chcard{background:#fff;border:1px solid rgba(0,0,0,0.09);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s;}
+.chcard:hover{border-color:var(--dc);}
+.ch.open .chcard{border-color:var(--dc);box-shadow:0 0 24px -8px var(--dc);}
+.ctop{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:20px 24px;cursor:pointer;user-select:none;}
+.cyr{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--dc);background:color-mix(in srgb,var(--dc) 12%,transparent);padding:5px 13px;border-radius:100px;white-space:nowrap;flex-shrink:0;}
+.cpunch{font-size:clamp(14px,1.6vw,17px);font-weight:700;line-height:1.4;color:#111;}
+.ctog{font-size:20px;color:var(--dc);flex-shrink:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+.ch.open .ctog{transform:rotate(45deg);}
+.exp{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1);}
+.ch.open .exp{max-height:400px;}
+.expin{border-top:1px solid rgba(0,0,0,0.07);padding:18px 24px 22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;}
+.exsum{font-size:15px;line-height:1.85;color:#333;}
+.exsum strong{color:#111;font-weight:700;}
+.exkpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.exkpi{font-size:12px;padding:4px 12px;border-radius:100px;background:color-mix(in srgb,var(--dc) 10%,transparent);color:var(--dc);font-weight:600;}
+.dlink{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--dc);color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .2s,transform .2s;}
+.dlink:hover{opacity:.88;transform:translateY(-2px);}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--dc);margin-left:7px;vertical-align:middle;animation:p 1.8s ease-in-out infinite;}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.2}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+.ss-shopee .ss-card{padding:20px 40px 20px 0;}
+.scard-shopee{width:100%;max-width:780px;padding:0;overflow:hidden;}
+.shopee-inner{display:grid;grid-template-columns:220px 1fr;min-height:420px;}
+.shopee-logo-col{background:linear-gradient(135deg,#fff4f0,#ffe8e0);display:flex;align-items:center;justify-content:center;padding:40px 24px;border-right:1px solid rgba(245,61,45,0.15);flex-shrink:0;}
+.shopee-logo-box{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;}
+.shopee-logo-box img{width:140px;height:140px;object-fit:contain;}
+.shopee-logo-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.shopee-content-col{padding:3rem 3rem;}
+
+@media(max-width:900px){
+  .snav{padding:14px 20px;}.snav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
+  .hr{flex-direction:row;flex-wrap:wrap;}
+  .sc{flex:1;min-width:140px;padding:16px 20px;}
+  .sv{font-size:clamp(24px,5vw,36px);min-width:auto;}
+  .ss{grid-template-columns:1fr;padding:40px 5%;}
+  .ss-yr{display:none;}
+  .ss-card{padding:20px;}
+  .ss.even .ss-card{order:0;}
+  .ss-shopee .ss-card{padding:0 !important;}
+  .shopee-inner{grid-template-columns:1fr;}
+  .shopee-logo-col{padding:32px;min-height:180px;}
+  .shopee-content-col{padding:1.75rem;}
+  .scard{width:100%;min-width:0;padding:2rem 1.75rem;}
+  .stit{font-size:1.8rem;}
+  .sdesc{font-size:1rem;}
+  .snum strong{font-size:1.5rem;}
+  .tls{padding:20px 20px 80px;}
+  .ctop{grid-template-columns:1fr auto;}.cyr{display:none;}
+  .expin{grid-template-columns:1fr;}.dlink{width:100%;justify-content:center;}
+}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+
+<!-- BIG BG GRID -->
+<div class="bg" id="bg">
+  <div class="bc" id="bc0">
+    <img src="images/logo-siyu.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#2563eb>秩宇</div><div class=s>WISER</div></div>'">
+  </div>
+  <div class="bc" id="bc1">
+    <img src="images/logo-ebay.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#e53238>eBay</div></div>'">
+  </div>
+  <div class="bc" id="bc2">
+    <img src="images/logo-amazon.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#ff9900>amazon</div></div>'">
+  </div>
+  <div class="bc" id="bc3">
+    <img src="images/logo-twitch.png" alt=""
+      onerror="this.parentNode.innerHTML='<div class=bc-fb><div class=t style=color:#9147ff>Twitch</div></div>'">
+  </div>
+  <div class="bc" id="bc4">
+    <div class="bc-fb">
+      <div class="t">📽</div>
+      <div class="s">投影幕品牌</div>
+    </div>
+  </div>
+  <div class="bc" id="bc5">
+    <div class="bc-fb">
+      <div class="t">🎫</div>
+      <div class="s">台灣彩券</div>
+    </div>
+  </div>
+</div>
+
+<!-- FG -->
+<div class="fg">
+  <nav class="snav">
+    <a href="index.html" class="logo">廖<span>.</span>哲志</a>
+    <div class="snav-links">
+      <a href="about.html">關於我</a>
+      <a href="siyu.html">視宇正職</a>
+      <a href="contact.html">聯絡</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hl">
+      <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
+      <div class="name-zh">廖哲志</div>
+      <div class="name-en">Tank Liao</div>
+      <div class="subtitle">的故事</div>
+      <div class="quote">"求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"</div>
+      <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
+    </div>
+    <div class="hr">
+      <div class="sc"><div class="sv" style="color:#2563eb">10+</div><div class="sl">年工作資歷</div></div>
+      <div class="sc"><div class="sv" style="color:#059669">200+</div><div class="sl">廠商電商輔導</div></div>
+      <div class="sc"><div class="sv" style="color:#db2777">4.1x</div><div class="sl">公司業績成長</div></div>
+      <div class="sc"><div class="sv" style="color:#d97706;font-size:clamp(22px,3vw,36px)">NT$780萬</div><div class="sl">蝦皮累積業績</div></div>
+    </div>
+  </section>
+
+  <!-- s1: odd → yr left, card right | logos: 0(視宇) -->
+  <section class="ss" data-target-logos="0">
+    <div class="ss-yr"><div class="ss-yr-txt">2018<br>—<br>現在</div></div>
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#dbeafe;color:#1e40af">2018 — 現在</div>
+      <div class="stit">視宇 · 秩宇</div>
+      <div class="sdesc">草創業務到營運長，帶領公司業績從 NT$840 萬成長至 NT$3,471 萬。7 年，4.1 倍。</div>
+      <div class="snums">
+        <div class="snum"><strong>4.1x</strong><span>業績成長</span></div>
+        <div class="snum"><strong>200+</strong><span>輔導廠商</span></div>
+        <div class="snum"><strong>13人+</strong><span>管理團隊</span></div>
+      </div>
+      <a href="siyu.html" class="sbtn" style="background:#2563eb">查看完整故事 →</a>
+    </div></div>
+  </section>
+
+  <!-- s2: even → card left, yr right | logos: 1(eBay)+2(Amazon) -->
+  <section class="ss even" data-target-logos="1,2">
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#fef3c7;color:#92400e">2018 — 2019</div>
+      <div class="stit">eBay · Amazon</div>
+      <div class="sdesc">自費當賣家，4 個月創造 USD $65,911，利潤率 50%。用真實市場學習，讓業務說話更有力。</div>
+      <div class="snums">
+        <div class="snum"><strong>$65,911</strong><span>USD 4個月</span></div>
+        <div class="snum"><strong>50%</strong><span>利潤率</span></div>
+      </div>
+      <a href="2019.html" class="sbtn" style="background:#d97706">查看完整故事 →</a>
+    </div></div>
+    <div class="ss-yr"><div class="ss-yr-txt">2018<br>—<br>2019</div></div>
+  </section>
+
+  <!-- s3: 蝦皮特殊版型 — 左側年份浮水印 + 右側寬卡(內含蝦皮logo) -->
+  <section class="ss ss-shopee" data-target-logos="">
+    <div class="ss-yr"><div class="ss-yr-txt">2021<br>—<br>2023</div></div>
+    <div class="ss-card ss-card-wide"><div class="scard scard-shopee">
+      <div class="shopee-inner">
+        <div class="shopee-logo-col">
+          <div class="shopee-logo-box">
+            <img src="images/logo-shopee.png" alt="蝦皮"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="shopee-logo-fallback" style="display:none;">
+              <div style="font-size:clamp(3rem,6vw,5.5rem);font-weight:900;color:#f53d2d;line-height:1;">蝦皮</div>
+              <div style="font-size:clamp(0.9rem,1.5vw,1.2rem);font-weight:700;color:#ff6633;letter-spacing:.1em;margin-top:8px;">Shopee</div>
+            </div>
+          </div>
+        </div>
+        <div class="shopee-content-col">
+          <div class="stag" style="background:#fff4f0;color:#c0392b">2021 — 2023</div>
+          <div class="stit">蝦皮創業</div>
+          <div class="sdesc">全職創業，25 個月累計 NT$780 萬。獨立操盤汽車精品店，從選品到出貨一手包辦。</div>
+          <div class="snums">
+            <div class="snum"><strong>NT$780萬</strong><span>蝦皮累計</span></div>
+            <div class="snum"><strong>25個月</strong><span>完整紀錄</span></div>
+            <div class="snum"><strong>NT$54.9萬</strong><span>單月高峰</span></div>
+          </div>
+          <a href="shopee.html" class="sbtn" style="background:#f53d2d">查看完整故事 →</a>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- s4: even → card left, yr right | logos: 2(Amazon)+3(Twitch) -->
+  <section class="ss even" data-target-logos="2,3">
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#f3e8ff;color:#6b21a8">2020</div>
+      <div class="stit">Twitch · 五國站點</div>
+      <div class="sdesc">協助建置美、英、德、澳、日五個 Amazon 站點。TwitchCon 當天 24hr On-Call，零中斷。</div>
+      <div class="snums">
+        <div class="snum"><strong>5國</strong><span>Amazon 站點</span></div>
+        <div class="snum"><strong>千萬+</strong><span>單月 NTD</span></div>
+      </div>
+      <a href="2020.html" class="sbtn" style="background:#7c3aed">查看完整故事 →</a>
+    </div></div>
+    <div class="ss-yr"><div class="ss-yr-txt">2020</div></div>
+  </section>
+
+  <!-- s5: odd → yr left, card right | logos: 4(投影幕) -->
+  <section class="ss" data-target-logos="4">
+    <div class="ss-yr"><div class="ss-yr-txt">2022<br>—<br>2023</div></div>
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#fce7f3;color:#9d174d">2022 — 2023</div>
+      <div class="stit">美國投影機品牌</div>
+      <div class="sdesc">13 條產品線，2023 Q1-Q3 業績 USD $94.8 萬。淡季逆勢 YoY +80%，全年估計破百萬美元。</div>
+      <div class="snums">
+        <div class="snum"><strong>$94.8萬</strong><span>USD Q1-Q3</span></div>
+        <div class="snum"><strong>+20.9%</strong><span>YoY</span></div>
+      </div>
+      <a href="us-client.html" class="sbtn" style="background:#db2777">查看完整故事 →</a>
+    </div></div>
+  </section>
+
+  <!-- s6: even → card left, yr right | logos: 5(彩券) -->
+  <section class="ss even" data-target-logos="5">
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#fef9c3;color:#713f12">2023 — 2024</div>
+      <div class="stit">台灣彩券行</div>
+      <div class="sdesc">第一次有實體店面。自己貼地板、換燈具，15 個月學會線下損益結構與現金流管理。</div>
+      <div class="snums">
+        <div class="snum"><strong>15個月</strong><span>實體經營</span></div>
+        <div class="snum"><strong>自己裝修</strong><span>地板 · 燈具</span></div>
+      </div>
+      <a href="lottery.html" class="sbtn" style="background:#b45309">查看完整故事 →</a>
+    </div></div>
+    <div class="ss-yr"><div class="ss-yr-txt">2023<br>—<br>2024</div></div>
+  </section>
+
+  <div class="divider">↓ 查看完整章節目錄</div>
+
+  <div class="tls" id="tlSection">
+    <div class="tlh reveal"><h2>章節目錄</h2><p>點擊年份卡片展開摘要，再點「查看完整故事」深入了解</p></div>
+    <div class="chs">
+
+      <div class="ch reveal" style="--dc:#e2b96b">
+        <div class="chcard" style="background:linear-gradient(135deg,#fffbeb,#fff8f0);border:1.5px solid #e2b96b;">
+          <div class="ctop" style="cursor:default;">
+            <div class="cyr" style="color:#92400e;background:#fef3c7;">👤 廖哲志 · Tank Liao</div>
+            <div class="cpunch" style="color:#78350f;">"求知若飢，虛心若愚——失敗不是問題，害怕失敗才是"</div>
+            <a href="about.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#e2b96b;color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;">關於我 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#2563eb">
+        <div class="chcard" style="border-left:3px solid #2563eb;">
+          <div class="ctop" onclick="toggle(this)">
+            <div class="cyr">🏢 視宇正職 · 2018—現在</div>
+            <div class="cpunch">草創業務 → 業務主管 → 營運長。公司業績 4.1 倍成長。</div>
+            <div class="ctog">+</div>
+          </div>
+          <div class="exp"><div class="expin">
+            <div><div class="exsum">2018年加入視宇，2023年回歸升任<strong>業務主管</strong>，2024年升任<strong>營運長（COO）</strong>。回歸當年 YoY <strong>+86.5%</strong>。</div>
+            <div class="exkpis"><span class="exkpi">NT$3,471萬 2025</span><span class="exkpi">+86.5% 回歸當年</span><span class="exkpi">COO</span></div></div>
+            <a href="siyu.html" class="dlink">查看完整故事 →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#7c3aed">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2018</div>
+          <div class="cpunch">沒人教、沒資源，我就自己學、自己做——這是我業務生涯最強的一課。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">自費成為 <strong>Amazon + eBay 賣家</strong>，用真實虧損和獲利逼自己搞懂每一個環節。</div>
+          <div class="exkpis"><span class="exkpi">Amazon</span><span class="exkpi">eBay</span><span class="exkpi">選品研究</span></div></div>
+          <a href="2018.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#2563eb">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2019</div>
+          <div class="cpunch">4個月，USD $65,911，利潤率 50%。數字會說話。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">單月穩定在 <strong>USD $14,000–$18,720</strong>，所有數據截圖均有留存。</div>
+          <div class="exkpis"><span class="exkpi">$65,911 USD</span><span class="exkpi">50% 利潤率</span></div></div>
+          <a href="2019.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#059669">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2020</div>
+          <div class="cpunch">Twitch 供應商找上我，協助五國站點建置，TwitchCon 24hr On-Call。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">建置美、英、德、澳、日五站，12月破 <strong>千萬 NTD</strong> 單月業績。</div>
+          <div class="exkpis"><span class="exkpi">5國站點</span><span class="exkpi">24hr On-Call</span><span class="exkpi">千萬 NTD</span></div></div>
+          <a href="2020.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#d97706">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2021—2023</div>
+          <div class="cpunch">轉戰台灣蝦皮，25個月累計 NT$780萬。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">單月高峰 <strong>NT$54.9萬</strong>，所有月份數據完整紀錄。</div>
+          <div class="exkpis"><span class="exkpi">NT$780萬 總計</span><span class="exkpi">高峰 54.9萬</span></div></div>
+          <a href="shopee.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#db2777">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2022—2023</div>
+          <div class="cpunch">美國投影機品牌 13 條產品線，總營業額破百萬美元，YoY +20.9%。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">Q1-Q3 達 <strong>USD $94.8萬</strong>，淡季 2、3 月創 <strong>80% YoY 彈跳</strong>。</div>
+          <div class="exkpis"><span class="exkpi">$94.8萬 USD</span><span class="exkpi">+20.9% YoY</span></div></div>
+          <a href="us-client.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#b45309">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">2023—2024</div>
+          <div class="cpunch">第一次有實體店面，15 個月學會線下損益結構。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">獨立經營<strong>台灣彩券行</strong>，自己裝修，建立對管銷成本第一手認識。</div>
+          <div class="exkpis"><span class="exkpi">15個月</span><span class="exkpi">實體管銷</span></div></div>
+          <a href="lottery.html" class="dlink">查看完整故事 →</a>
+        </div></div></div>
+      </div>
+
+      <div class="ch reveal" style="--dc:#0891b2">
+        <div class="chcard"><div class="ctop" onclick="toggle(this)">
+          <div class="cyr">現在 <span class="pulse"></span></div>
+          <div class="cpunch">下一章，還沒寫完。我在找能把這些能力放大的舞台。</div>
+          <div class="ctog">+</div>
+        </div><div class="exp"><div class="expin">
+          <div><div class="exsum">6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。</div>
+          <div class="exkpis"><span class="exkpi">跨境電商策略</span><span class="exkpi">多平台營運</span></div></div>
+          <a href="contact.html" class="dlink">聯絡我 →</a>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('pb').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+});
+const bcs=document.querySelectorAll('.bc');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const raw=(e.target.dataset.targetLogos||'').trim();
+      const targets=raw===''?[]:raw.split(',').map(n=>+n.trim()).filter(n=>n>=0&&!isNaN(n));
+      bcs.forEach((c,j)=>c.classList.toggle('lit',targets.includes(j)));
+      e.target.querySelector('.scard').classList.add('visible');
+    }
+  });
+},{threshold:0.45});
+document.querySelectorAll('.ss').forEach(s=>obs.observe(s));
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)bcs.forEach(c=>c.classList.remove('lit'));});
+},{threshold:0.3}).observe(document.getElementById('hero'));
+const tl=document.getElementById('tlSection');
+if(tl){new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)bcs.forEach(c=>c.classList.remove('lit'));});
+},{threshold:0.1}).observe(tl);}
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1}).observe(document.querySelector('.tlh'));
+document.querySelectorAll('.ch.reveal').forEach(el=>{
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.1}).observe(el);
+});
+function toggle(el){
+  const ch=el.closest('.ch');
+  const open=ch.classList.contains('open');
+  document.querySelectorAll('.ch.open').forEach(c=>c.classList.remove('open'));
+  if(!open)ch.classList.add('open');
+}
+</script>
+</body>
+</html>
