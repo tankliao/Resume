@@ -50,6 +50,7 @@
   color:#222 !important;
   font-style:italic;
 }
+@media(max-width:768px){.card-grid-3{grid-template-columns:1fr !important;}}
 </style>
 </head>
 <body>
@@ -68,11 +69,22 @@
 
   <div class="section-block reveal">
     <div class="section-block-label"><span>這一年在學的事</span></div>
-    <div class="card-grid">
-      <div class="card"><div class="card-label" style="color:var(--y2018)">🛒 平台入門</div><div class="card-body">從開設賣家帳號開始，摸索 <strong>Amazon Seller Central</strong> 和 eBay 後台的每一個功能，理解平台規則和演算法邏輯。</div></div>
-      <div class="card"><div class="card-label" style="color:var(--y2018)">🔍 選品方法論</div><div class="card-body">研究市場需求缺口，學習用工具分析競品銷量、評論、定價，建立第一套<strong>爆品篩選邏輯</strong>。</div></div>
-      <div class="card"><div class="card-label" style="color:var(--y2018)">📦 跨境物流</div><div class="card-body">了解國際運輸成本結構、FBA 倉儲邏輯、報關文件，把物流成本納入選品評估。</div></div>
-      <div class="card"><div class="card-label" style="color:var(--y2018)">✍️ Listing 優化</div><div class="card-body">學習英文標題、bullet points、A+ content 的寫法，讓商品在搜尋結果中脫穎而出。</div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="card" style="padding:32px;">
+        <div style="font-size:32px;margin-bottom:16px;">🛒</div>
+        <div class="card-label" style="color:var(--y2018);font-size:20px !important;">平台入門</div>
+        <div class="card-body" style="font-size:16px !important;line-height:1.9 !important;">從開設賣家帳號開始，摸索 <strong>Amazon Seller Central</strong> 和 eBay 後台的每一個功能，理解平台規則和演算法邏輯。熟悉從帳號申請、商品上架到後台數據分析的完整流程。</div>
+      </div>
+      <div class="card" style="padding:32px;">
+        <div style="font-size:32px;margin-bottom:16px;">📦</div>
+        <div class="card-label" style="color:var(--y2018);font-size:20px !important;">跨境物流</div>
+        <div class="card-body" style="font-size:16px !important;line-height:1.9 !important;">了解國際運輸成本結構、<strong>FBA 倉儲邏輯</strong>、報關文件，把物流成本納入選品評估。從台灣出貨到美國倉儲的整條供應鏈，一手建立並持續優化。</div>
+      </div>
+      <div class="card" style="padding:32px;">
+        <div style="font-size:32px;margin-bottom:16px;">✍️</div>
+        <div class="card-label" style="color:var(--y2018);font-size:20px !important;">Listing 優化</div>
+        <div class="card-body" style="font-size:16px !important;line-height:1.9 !important;">學習英文標題、<strong>bullet points</strong>、A+ content 的寫法，讓商品在搜尋結果中脫穎而出。透過關鍵字研究和競品分析，持續提升商品曝光率與轉換率。</div>
+      </div>
     </div>
   </div>
 
