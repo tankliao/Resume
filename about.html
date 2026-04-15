@@ -9,32 +9,37 @@
 <style>
 .about-hero {
   padding: 100px 48px 48px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
   align-items: start;
 }
 .photo-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  position: sticky;
+  top: 100px;
 }
-.photo-circle {
-  width: 160px; height: 160px;
-  border-radius: 50%;
-  background: #e8e8e4;
-  border: 3px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 16px;
   overflow: hidden;
-  font-size: 14px;
-  color: #999;
+  background: #e8e8e4;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
 }
-.photo-circle img { width:100%;height:100%;object-fit:cover; }
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
 .name-block { }
 .name-zh { font-size: 42px; font-weight: 900; color: #1a1a18; line-height: 1; margin-bottom: 6px; }
 .name-en { font-size: 22px; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
@@ -94,6 +99,8 @@
 
 @media (max-width: 640px) {
   .about-hero { grid-template-columns: 1fr; padding: 80px 20px 32px; }
+  .photo-wrap { position: static; }
+  .photo-frame { max-width: 260px; }
   .about-content { padding: 0 20px 60px; }
   .info-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 4px; }
@@ -109,26 +116,29 @@
 
 <div class="about-hero">
   <div class="photo-wrap">
-    <div class="photo-circle">
-      <span>照片<br>即將更新</span>
+    <div class="photo-frame">
+      <img src="images/profile-about.jpg" alt="廖哲志 Tank Liao">
     </div>
-    <div style="font-size:13px;color:#888;text-align:center;">廖哲志 · Tank Liao</div>
+    <div style="font-size:13px;color:#888;text-align:center;letter-spacing:0.05em;">廖哲志 · Tank Liao</div>
   </div>
   <div class="name-block">
     <div class="name-zh">廖哲志</div>
     <div class="name-en">Tank Liao</div>
     <div class="tagline">
-      "求知若飢，虛心若愚"
+      "求知若飢，虛心若愚<br>
+      失敗不是問題，害怕失敗才是"
     </div>
     <div class="meta-row">
       <span class="meta-pill">33歲</span>
       <span class="meta-pill">新北市新店區</span>
       <span class="meta-pill">在職中</span>
       <span class="meta-pill">10+ 年經歷</span>
+      <span class="meta-pill">希望職稱：營運長</span>
     </div>
     <p class="intro-text">
       跨境電商出身，從第一線業務做到<strong>營運長</strong>。<br>
-      協助超過 <strong>200 間廠商</strong>規劃電商轉型，個人業績佔公司服務營業額約 <strong>50%</strong>。
+      協助超過 <strong>200 間廠商</strong>規劃電商轉型，個人業績佔公司服務營業額約 <strong>50%</strong>。<br>
+      相信數據說話，相信執行力比計畫更重要。
     </p>
   </div>
 </div>
