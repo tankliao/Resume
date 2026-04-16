@@ -32,15 +32,15 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0;gap:0;}
 .hl{position:relative;height:100vh;overflow:hidden;background:#F7F8FA;}
-.hl-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-.hl-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,248,250,0) 50%,rgba(247,248,250,0.9) 100%);}
+.hl-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0.45;}
+.hl-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,248,250,0.15) 0%,rgba(247,248,250,0.7) 60%,rgba(247,248,250,0.95) 100%);}
 .hl-text{position:absolute;bottom:52px;left:48px;right:48px;}
-.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#666;margin-bottom:12px;}
-.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;color:#0d0d0d;letter-spacing:.05em;line-height:1;margin-bottom:6px;}
-.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,2.8rem);font-weight:400;color:#555;margin-bottom:12px;line-height:1.1;}
-.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:#bbb;letter-spacing:.06em;margin-bottom:20px;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#2563eb;margin-bottom:12px;}
+.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;color:#111;letter-spacing:.05em;line-height:1;margin-bottom:6px;text-shadow:0 1px 8px rgba(255,255,255,0.8);}
+.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,2.8rem);font-weight:400;color:#444;margin-bottom:12px;line-height:1.1;text-shadow:0 1px 6px rgba(255,255,255,0.8);}
+.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:#7c3aed;letter-spacing:.06em;margin-bottom:20px;}
 .quote{font-family:'Noto Serif TC',serif;font-size:clamp(14px,1.4vw,17px);font-style:italic;color:#666;border-left:4px solid #e2b96b;padding:4px 0 4px 18px;line-height:2;margin-bottom:40px;max-width:460px;}
-.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:14px;color:#555;letter-spacing:.08em;font-weight:500;}
+.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:14px;color:#059669;letter-spacing:.08em;font-weight:600;}
 .sline{display:none;}.shint span::after{content:" ↓";animation:bob 2s ease-in-out infinite;display:inline-block;}
 @keyframes bob{0%,100%{opacity:.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.3);}}
 
@@ -49,7 +49,7 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 .sc:hover{background:#f8f9ff;}
 .sv{font-size:clamp(32px,4.5vw,58px);font-weight:900;line-height:1;margin-bottom:14px;}
 .sl{font-size:16px;color:#222;font-weight:700;line-height:1.4;margin-bottom:8px;}
-.sc-tip{font-size:17px;color:#4A4A4A;line-height:1.7;margin-top:8px;}
+.sc-tip{font-size:13px;color:#888;line-height:1.65;}
 
 /* STORY */
 .ss{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 5%;gap:0;}
@@ -124,13 +124,12 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 
 @media(max-width:900px){
   .snav{padding:14px 20px;}.snav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
   .hero{grid-template-columns:1fr;}
-  .hl{height:55vw;min-height:260px;}
+  .hl{height:60vh;}
   .hr{grid-template-columns:1fr 1fr;height:auto;}
-  .sc{padding:24px 18px;}
-  .sv{font-size:clamp(24px,6vw,36px);}
-  .sl{font-size:15px;}
-  .sc-tip{font-size:14px;}
+  .sc{padding:28px 20px;}
+  .sv{font-size:clamp(26px,6vw,40px);}
   .ss{grid-template-columns:1fr;padding:40px 5%;}
   .ss-yr{display:none;}
   .ss-card{padding:20px;}
@@ -147,7 +146,6 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
   .ctop{grid-template-columns:1fr auto;}.cyr{display:none;}
   .expin{grid-template-columns:1fr;}.dlink{width:100%;justify-content:center;}
 }
-@media(max-width:480px){.hr{grid-template-columns:1fr;}.sc{padding:20px 16px;border-bottom:1px solid rgba(0,0,0,0.06);}.sv{font-size:clamp(28px,8vw,40px);}.sc-tip{font-size:13px;}}
 </style>
 </head>
 <body>
