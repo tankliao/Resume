@@ -101,7 +101,7 @@ body {
 
 .hero-sub {
   font-size: 16px;
-  color: #888884;
+  color: #333;
   line-height: 1.7;
   max-width: 520px;
   margin-bottom: 48px;
@@ -153,10 +153,11 @@ body {
   margin-bottom: 6px;
 }
 .mega-stat-label {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: #888884;
-  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #333;
+  font-weight: 600;
+  text-transform: none;
 }
 
 /* ── CHART SECTION ── */
@@ -205,7 +206,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #888884;
+  color: #333;
   letter-spacing: 0.05em;
 }
 .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
@@ -260,7 +261,7 @@ body {
 
 .bar-month {
   font-size: 9px;
-  color: #888884;
+  color: #333;
   letter-spacing: 0.04em;
   text-align: center;
   white-space: nowrap;
@@ -277,7 +278,7 @@ body {
   margin-right: 12px;
   text-align: right;
 }
-.y-label { font-size: 10px; color: #888884; letter-spacing: 0.05em; }
+.y-label { font-size: 10px; color: #333; letter-spacing: 0.05em; }
 
 .chart-grid-wrap {
   display: flex;
@@ -326,7 +327,7 @@ body {
   margin-bottom: 6px;
 }
 .hl-label { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-.hl-desc { font-size: 12px; color: #888884; line-height: 1.5; }
+.hl-desc { font-size: 15px; color: #222; line-height: 1.65; font-weight: 500; }
 
 /* ── YEAR BANDS ── */
 .year-bands {
@@ -362,7 +363,7 @@ body {
   -webkit-text-fill-color: transparent;
   margin-bottom: 6px;
 }
-.year-band-orders { font-size: 12px; color: #888884; letter-spacing: 0.05em; }
+.year-band-orders { font-size: 15px; color: #222; letter-spacing: 0.02em; font-weight: 600; }
 
 /* ── PRODUCT TAGS ── */
 .product-section {
@@ -373,26 +374,28 @@ body {
   border-radius: 8px;
 }
 .product-label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #888884;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: #222;
+  font-weight: 700;
   margin-bottom: 16px;
 }
 .product-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .ptag {
-  padding: 8px 18px;
-  background: rgba(255,87,34,0.08);
-  border: 1px solid rgba(255,87,34,0.2);
+  padding: 9px 20px;
+  background: #f0f0ec;
+  border: 1px solid rgba(0,0,0,0.12);
   border-radius: 100px;
-  font-size: 13px;
-  color: var(--shopee-light);
+  font-size: 15px;
+  color: #222;
+  font-weight: 500;
   transition: all 0.3s;
   cursor: default;
 }
 .ptag:hover {
-  background: rgba(255,87,34,0.15);
-  border-color: var(--shopee);
+  background: #e0e0da;
+  border-color: rgba(0,0,0,0.25);
   transform: translateY(-2px);
 }
 
