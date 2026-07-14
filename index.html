@@ -30,26 +30,22 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 .fg{position:relative;z-index:1;}
 
 /* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0;gap:0;}
-.hl{position:relative;height:100vh;overflow:hidden;background:#F7F8FA;}
-.hl-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0.45;}
-.hl-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,248,250,0.15) 0%,rgba(247,248,250,0.7) 60%,rgba(247,248,250,0.95) 100%);}
-.hl-text{position:absolute;bottom:52px;left:48px;right:48px;}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#2563eb;margin-bottom:12px;}
-.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;color:#111;letter-spacing:.05em;line-height:1;margin-bottom:6px;text-shadow:0 1px 8px rgba(255,255,255,0.8);}
-.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,2.8rem);font-weight:400;color:#444;margin-bottom:12px;line-height:1.1;text-shadow:0 1px 6px rgba(255,255,255,0.8);}
-.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:#7c3aed;letter-spacing:.06em;margin-bottom:20px;}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 8% 80px;gap:60px;}
+.hl{}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#888;margin-bottom:24px;}
+.name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(4rem,10vw,8rem);font-weight:900;color:#0d0d0d;letter-spacing:.05em;line-height:1;margin-bottom:10px;}
+.name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2rem,5vw,4rem);font-weight:400;color:#444;margin-bottom:18px;line-height:1.1;}
+.subtitle{font-family:'Noto Serif TC',serif;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:600;color:#ccc;letter-spacing:.06em;margin-bottom:30px;}
 .quote{font-family:'Noto Serif TC',serif;font-size:clamp(14px,1.4vw,17px);font-style:italic;color:#666;border-left:4px solid #e2b96b;padding:4px 0 4px 18px;line-height:2;margin-bottom:40px;max-width:460px;}
-.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:14px;color:#059669;letter-spacing:.08em;font-weight:600;}
-.sline{display:none;}.shint span::after{content:" ↓";animation:bob 2s ease-in-out infinite;display:inline-block;}
+.shint{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:13px;color:#aaa;letter-spacing:.12em;}
+.sline{width:1px;height:48px;background:linear-gradient(to bottom,#aaa,transparent);animation:bob 2s ease-in-out infinite;}
 @keyframes bob{0%,100%{opacity:.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.3);}}
 
-.hr{display:grid;grid-template-columns:1fr 1fr;height:100vh;}
-.sc{background:#fff;border:0.5px solid rgba(0,0,0,0.08);padding:44px 36px;display:flex;flex-direction:column;justify-content:center;transition:background .2s;position:relative;}
-.sc:hover{background:#f8f9ff;}
-.sv{font-size:clamp(32px,4.5vw,58px);font-weight:900;line-height:1;margin-bottom:14px;}
-.sl{font-size:16px;color:#222;font-weight:700;line-height:1.4;margin-bottom:8px;}
-.sc-tip{font-size:17px;color:#4A4A4A;line-height:1.7;margin-top:8px;}
+.hr{display:flex;flex-direction:column;gap:18px;}
+.sc{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:24px 32px;box-shadow:0 4px 28px rgba(0,0,0,0.08);display:flex;align-items:center;gap:22px;transition:transform .2s,box-shadow .2s;}
+.sc:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,0.12);}
+.sv{font-size:clamp(32px,4vw,50px);font-weight:900;line-height:1;min-width:130px;}
+.sl{font-size:15px;color:#555;font-weight:500;line-height:1.4;}
 
 /* STORY */
 .ss{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 5%;gap:0;}
@@ -125,11 +121,9 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 @media(max-width:900px){
   .snav{padding:14px 20px;}.snav-links{display:none;}
   .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
-  .hero{grid-template-columns:1fr;}
-  .hl{height:60vh;}
-  .hr{grid-template-columns:1fr 1fr;height:auto;}
-  .sc{padding:28px 20px;}
-  .sv{font-size:clamp(26px,6vw,40px);}
+  .hr{flex-direction:row;flex-wrap:wrap;}
+  .sc{flex:1;min-width:140px;padding:16px 20px;}
+  .sv{font-size:clamp(24px,5vw,36px);min-width:auto;}
   .ss{grid-template-columns:1fr;padding:40px 5%;}
   .ss-yr{display:none;}
   .ss-card{padding:20px;}
@@ -187,44 +181,46 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
       <a href="about.html">關於我</a>
       <a href="siyu.html">視宇正職</a>
       <a href="contact.html">聯絡</a>
+      <a href="https://youtu.be/xT1zA0RLUWo" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:#dc2626;color:#fff;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="6,4 20,12 6,20"/></svg>
+        Tank 的 AI 工具箱
+      </a>
     </div>
   </nav>
 
   <section class="hero" id="hero">
     <div class="hl">
-      <img class="hl-photo" src="images/profile-photo.jpg" alt="廖哲志 Tank Liao">
-      <div class="hl-overlay"></div>
-      <div class="hl-text">
-        <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
-        <div class="name-zh">廖哲志</div>
-        <div class="name-en">Tank Liao</div>
-        <div class="subtitle">的故事</div>
-        <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
-      </div>
+      <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
+      <div class="name-zh">廖哲志</div>
+      <div class="name-en">Tank Liao</div>
+      <div class="subtitle">的故事</div>
+      <div class="quote">"求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"</div>
+      <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
     </div>
     <div class="hr">
-      <div class="sc" style="border-bottom:0.5px solid rgba(0,0,0,0.08);border-right:0.5px solid rgba(0,0,0,0.08);">
-        <div class="sv" style="color:#2563eb">0 → 1</div>
-        <div class="sl">輔導近百家企業執行電商建置</div>
-        <div class="sc-tip">我一人可以執行好幾個部門的任務，讓企業達到最低成本建置。</div>
-      </div>
-      <div class="sc" style="border-bottom:0.5px solid rgba(0,0,0,0.08);">
-        <div class="sv" style="color:#059669">10+</div>
-        <div class="sl">國家電商平台建置經驗</div>
-        <div class="sc-tip">十國站點(加、美、德、英、法、日、新、印、阿聯、澳) ; 四大平台 eBay Amazon Tiktok(Shop) Shopee</div>
-      </div>
-      <div class="sc" style="border-right:0.5px solid rgba(0,0,0,0.08);">
-        <div class="sv" style="color:#db2777">3x</div>
-        <div class="sl">從業務升任管理職，個人到團隊業績</div>
-        <div class="sc-tip">以2022年為基準，帶領團隊從NT$1,199萬成長至NT$3,471萬。</div>
-      </div>
-      <div class="sc">
-        <div class="sv" style="color:#d97706;font-size:clamp(26px,3.5vw,46px)">1,000萬+</div>
-        <div class="sl">獨自創造的累積營業額</div>
-        <div class="sc-tip">從採購、進出口、上架到行銷一人包辦。走過賣家路，最清楚這條路該怎麼走。</div>
-      </div>
+      <div class="sc"><div class="sv" style="color:#2563eb">10+</div><div class="sl">年工作資歷</div></div>
+      <div class="sc"><div class="sv" style="color:#059669">200+</div><div class="sl">廠商電商輔導</div></div>
+      <div class="sc"><div class="sv" style="color:#db2777">4.1x</div><div class="sl">公司業績成長</div></div>
+      <div class="sc"><div class="sv" style="color:#d97706;font-size:clamp(22px,3vw,36px)">NT$780萬</div><div class="sl">蝦皮累積業績</div></div>
     </div>
   </section>
+
+  <!-- YouTube 頻道橫幅 -->
+  <a href="https://youtu.be/xT1zA0RLUWo" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 60px;background:linear-gradient(90deg,#1a1a1a,#2d1a1a);text-decoration:none;border-bottom:1px solid rgba(220,38,38,0.3);transition:background .2s;" onmouseover="this.style.background='linear-gradient(90deg,#1f1f1f,#3d1a1a)'" onmouseout="this.style.background='linear-gradient(90deg,#1a1a1a,#2d1a1a)'">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div style="width:44px;height:44px;background:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 20px rgba(220,38,38,0.4);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6,4 20,12 6,20"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em;">Tank 的 AI 工具箱</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px;">n8n 自動化 · AI 工具實戰 · 電商應用</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#dc2626;white-space:nowrap;">
+      前往頻道
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </a>
 
   <!-- s1: odd → yr left, card right | logos: 0(視宇) -->
   <section class="ss" data-target-logos="0">
@@ -232,9 +228,9 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
     <div class="ss-card"><div class="scard">
       <div class="stag" style="background:#dbeafe;color:#1e40af">2018 — 現在</div>
       <div class="stit">視宇 · 秩宇</div>
-      <div class="sdesc">草創業務到營運長，2023年回歸後帶領公司業績從 NT$1,199 萬成長至 NT$3,471 萬。3 倍成長。</div>
+      <div class="sdesc">草創業務到營運長，帶領公司業績從 NT$840 萬成長至 NT$3,471 萬。7 年，4.1 倍。</div>
       <div class="snums">
-        <div class="snum"><strong>3x</strong><span>業績成長</span></div>
+        <div class="snum"><strong>4.1x</strong><span>業績成長</span></div>
         <div class="snum"><strong>200+</strong><span>輔導廠商</span></div>
         <div class="snum"><strong>13人+</strong><span>管理團隊</span></div>
       </div>
@@ -296,7 +292,6 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
       <div class="snums">
         <div class="snum"><strong>5國</strong><span>Amazon 站點</span></div>
         <div class="snum"><strong>千萬+</strong><span>單月 NTD</span></div>
-        <div class="snum"><strong>1,000+</strong><span>SKUs 操作數量</span></div>
       </div>
       <a href="2020.html" class="sbtn" style="background:#7c3aed">查看完整故事 →</a>
     </div></div>
@@ -320,21 +315,15 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 
   <!-- s6: even → card left, yr right | logos: 5(彩券) -->
   <section class="ss even" data-target-logos="5">
-    <div class="ss-card"><div class="scard" style="padding:0;overflow:hidden;">
-      <div style="padding:2.5rem 2.5rem 1.5rem;">
-        <div class="stag" style="background:#fef9c3;color:#713f12">2023 — 2024</div>
-        <div class="stit">台灣彩券行</div>
-        <div class="sdesc">第一次有實體店面。自己貼地板、換燈具，15 個月學會線下損益結構與現金流管理。</div>
-        <div class="snums">
-          <div class="snum"><strong>15個月</strong><span>實體經營</span></div>
-          <div class="snum"><strong>自己裝修</strong><span>地板 · 燈具</span></div>
-        </div>
+    <div class="ss-card"><div class="scard">
+      <div class="stag" style="background:#fef9c3;color:#713f12">2023 — 2024</div>
+      <div class="stit">台灣彩券行</div>
+      <div class="sdesc">第一次有實體店面。自己貼地板、換燈具，15 個月學會線下損益結構與現金流管理。</div>
+      <div class="snums">
+        <div class="snum"><strong>15個月</strong><span>實體經營</span></div>
+        <div class="snum"><strong>自己裝修</strong><span>地板 · 燈具</span></div>
       </div>
-      <div style="width:100%;height:260px;overflow:hidden;background:#f5f0e8;">
-        <img src="images/lottery-store.jpg" alt="台灣彩券行實拍"
-          style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
-          onerror="this.parentNode.innerHTML='<div style=\'width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fef9c3;\'><div style=\'font-size:3rem;\'>📸</div><div style=\'font-size:13px;color:#92400e;font-weight:600;\'>放入 images/lottery-store.jpg</div></div>'">
-      </div>
+      <a href="lottery.html" class="sbtn" style="background:#b45309">查看完整故事 →</a>
     </div></div>
     <div class="ss-yr"><div class="ss-yr-txt">2023<br>—<br>2024</div></div>
   </section>
@@ -349,7 +338,7 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
         <div class="chcard" style="background:linear-gradient(135deg,#fffbeb,#fff8f0);border:1.5px solid #e2b96b;">
           <div class="ctop" style="cursor:default;">
             <div class="cyr" style="color:#92400e;background:#fef3c7;">👤 廖哲志 · Tank Liao</div>
-            <div class="cpunch" style="color:#78350f;">"求知若飢，虛心若愚——失敗不是問題，害怕失敗才是"</div>
+            <div class="cpunch" style="color:#78350f;">"求知若飢，虛心若愚"</div>
             <a href="about.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#e2b96b;color:#fff;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;">關於我 →</a>
           </div>
         </div>
@@ -359,7 +348,7 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
         <div class="chcard" style="border-left:3px solid #2563eb;">
           <div class="ctop" onclick="toggle(this)">
             <div class="cyr">🏢 視宇正職 · 2018—現在</div>
-            <div class="cpunch">草創業務 → 業務主管 → 營運長。回歸後公司業績 3 倍成長。</div>
+            <div class="cpunch">草創業務 → 業務主管 → 營運長。公司業績 4.1 倍成長。</div>
             <div class="ctog">+</div>
           </div>
           <div class="exp"><div class="expin">
@@ -438,16 +427,17 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
         </div><div class="exp"><div class="expin">
           <div><div class="exsum">獨立經營<strong>台灣彩券行</strong>，自己裝修，建立對管銷成本第一手認識。</div>
           <div class="exkpis"><span class="exkpi">15個月</span><span class="exkpi">實體管銷</span></div></div>
+          <a href="lottery.html" class="dlink">查看完整故事 →</a>
         </div></div></div>
       </div>
 
       <div class="ch reveal" style="--dc:#0891b2">
         <div class="chcard"><div class="ctop" onclick="toggle(this)">
           <div class="cyr">現在 <span class="pulse"></span></div>
-          <div class="cpunch">現在，TikTok Shop US / JP 全新操作邏輯運營，興趣電商新篇章。</div>
+          <div class="cpunch">下一章，還沒寫完。我在找能把這些能力放大的舞台。</div>
           <div class="ctog">+</div>
         </div><div class="exp"><div class="expin">
-          <div><div class="exsum">6年累積的不只是業績數字，而是不斷地成長學習，讓自己可以看得更廣。</div>
+          <div><div class="exsum">6年累積的不只是業績數字，而是在<strong>不同規模下找到成長引擎</strong>的能力。</div>
           <div class="exkpis"><span class="exkpi">跨境電商策略</span><span class="exkpi">多平台營運</span></div></div>
           <a href="contact.html" class="dlink">聯絡我 →</a>
         </div></div></div>
