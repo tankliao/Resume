@@ -30,8 +30,11 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 .fg{position:relative;z-index:1;}
 
 /* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 8% 80px;gap:60px;}
-.hl{}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0;gap:0;}
+.hl{position:relative;height:100vh;overflow:hidden;background:#F7F8FA;}
+.hl-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0.45;}
+.hl-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,248,250,0.15) 0%,rgba(247,248,250,0.7) 60%,rgba(247,248,250,0.95) 100%);}
+.hl-text{position:absolute;bottom:52px;left:48px;right:48px;}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#888;margin-bottom:24px;}
 .name-zh{font-family:'Noto Sans TC',sans-serif;font-size:clamp(4rem,10vw,8rem);font-weight:900;color:#0d0d0d;letter-spacing:.05em;line-height:1;margin-bottom:10px;}
 .name-en{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2rem,5vw,4rem);font-weight:400;color:#444;margin-bottom:18px;line-height:1.1;}
@@ -120,8 +123,10 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 
 @media(max-width:900px){
   .snav{padding:14px 20px;}.snav-links{display:none;}
-  .hero{grid-template-columns:1fr;padding:80px 6% 60px;gap:40px;}
-  .hr{flex-direction:row;flex-wrap:wrap;}
+  .hero{grid-template-columns:1fr;padding:0;gap:0;}
+  .hl{height:60vh;}
+  .hl-text{bottom:32px;left:24px;right:24px;}
+  .hr{flex-direction:row;flex-wrap:wrap;padding:32px 6% 60px;}
   .sc{flex:1;min-width:140px;padding:16px 20px;}
   .sv{font-size:clamp(24px,5vw,36px);min-width:auto;}
   .ss{grid-template-columns:1fr;padding:40px 5%;}
@@ -190,12 +195,16 @@ body{background:#F7F8FA;font-family:'Noto Sans TC',sans-serif;overflow-x:hidden;
 
   <section class="hero" id="hero">
     <div class="hl">
-      <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
-      <div class="name-zh">廖哲志</div>
-      <div class="name-en">Tank Liao</div>
-      <div class="subtitle">的故事</div>
-      <div class="quote">"求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"</div>
-      <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
+      <img class="hl-photo" src="images/profile-photo.jpg" alt="廖哲志 Tank Liao">
+      <div class="hl-overlay"></div>
+      <div class="hl-text">
+        <div class="eyebrow">電商創業者 · 營運長 COO · 2018 — 現在</div>
+        <div class="name-zh">廖哲志</div>
+        <div class="name-en">Tank Liao</div>
+        <div class="subtitle">的故事</div>
+        <div class="quote">"求知若飢，虛心若愚<br>失敗不是問題，害怕失敗才是"</div>
+        <div class="shint"><span>往下滾動，展開每一年</span><div class="sline"></div></div>
+      </div>
     </div>
     <div class="hr">
       <div class="sc"><div class="sv" style="color:#2563eb">10+</div><div class="sl">年工作資歷</div></div>
